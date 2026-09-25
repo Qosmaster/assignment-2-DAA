@@ -1,0 +1,5 @@
+PASS: DynamicArray empty, single, duplicates, boundaries, invalid, random, large
+PASS: LinkedList empty, single, duplicates, boundaries, invalid, random, large
+PASS: list metric counters, including array resizing
+PASS: MinHeap empty, single, duplicates, extremes, random, ordered, large, metrics
+PASS: 188698 checks; all test groups passed.
