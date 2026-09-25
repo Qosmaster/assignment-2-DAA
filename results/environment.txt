@@ -1,0 +1,14 @@
+Recorded at: 2026-09-25T12:18:39.412079911Z
+Java version: 21.0.11
+Java VM: OpenJDK 64-Bit Server VM
+Java vendor: Debian
+OS: Linux 6.18.44
+Architecture: amd64
+Available processors: 4
+Maximum JVM memory bytes: 1073741824
+JVM arguments: [-Xms256m, -Xmx1g]
+Seed: 42; recorded repetitions: 5
+Warm-up: two unreported complete rounds at n=1000.
+Measurements include logical counter updates, not data generation or printing.
+Removal batch restorations and result validation are excluded from timing.
+Runtime environment is a shared container, not the student's personal computer.

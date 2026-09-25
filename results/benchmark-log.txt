@@ -1,0 +1,7 @@
+Warming up the JVM...
+Finished n=100 with five repetitions.
+Finished n=1000 with five repetitions.
+Finished n=10000 with five repetitions.
+Finished n=100000 with five repetitions.
+Saved 280 raw rows and 56 summary rows.
+All workload validation checks passed. Checksum sink: 4982430734

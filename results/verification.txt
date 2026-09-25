@@ -1,0 +1,5 @@
+PASS: 280 raw rows, 56 experiment groups, exactly five repeats per group.
+PASS: mean, minimum, maximum, sample standard deviation, and all deterministic metrics.
+PASS: identical search comparisons, 50% search hits, and all exact W3 metric formulas.
+PASS: removal batch counts and restoration protocol for every n.
+PASS: 56 summary rows independently verified.
