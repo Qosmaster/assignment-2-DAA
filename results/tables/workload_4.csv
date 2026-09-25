@@ -1,0 +1,9 @@
+workload,structure,n,m,runs,mean_ns,mean_ms,min_ms,max_ms,sd_ms,mean_accesses,mean_comparisons,mean_movements,batches,theory
+W4_insert,MinHeap,100,100,5,18131.4,0.018131,0.013479,0.034742,0.009296,0,220,366,1,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,100,100,5,45776.8,0.045777,0.019993,0.147976,0.057132,0,855,923,1,Theta(n*log(n)) expected; O(n*log(n)) worst
+W4_insert,MinHeap,1000,1000,5,215488.6,0.215489,0.177015,0.318877,0.058694,0,2281,3576,1,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,1000,1000,5,139247.4,0.139247,0.128772,0.173032,0.018996,0,15018,15695,1,Theta(n*log(n)) expected; O(n*log(n)) worst
+W4_insert,MinHeap,10000,10000,5,1045766.8,1.045767,0.466579,1.502130,0.421307,0,22918,42234,1,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,10000,10000,5,1450214.2,1.450214,0.800966,1.855975,0.424536,0,216624,223541,1,Theta(n*log(n)) expected; O(n*log(n)) worst
+W4_insert,MinHeap,100000,100000,5,4729696.2,4.729696,1.964912,6.578434,1.712553,0,227941,386962,1,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,100000,100000,5,14429577.4,14.429577,12.681154,18.317807,2.234544,0,2831730,2901807,1,Theta(n*log(n)) expected; O(n*log(n)) worst
