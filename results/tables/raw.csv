@@ -1,281 +1,281 @@
 workload,structure,n,m,repeat,total_ns,accesses,comparisons,movements,batches,checksum,theory
-W1_access,DynamicArray,100,10000,1,171114,10000,0,0,1,495657,Theta(m)
-W2_search,DynamicArray,100,1000,1,160170,75912,75912,0,1,500,Theta(m*n) expected
-W3_insert_front,DynamicArray,100,1000,1,398524,1203840,0,601420,1,1038685203,Theta(m*n+m^2)
-W3_remove_front,DynamicArray,100,1000,1,77523,100000,0,49500,10,49500,Theta(m*n) under the batch protocol
-W3_insert_middle,DynamicArray,100,1000,1,299820,1103840,0,551420,1,1038685203,Theta(m*n+m^2)
-W3_remove_middle,DynamicArray,100,1000,1,64850,50000,0,24500,20,45540,Theta(m*n) under the batch protocol
-W1_access,LinkedList,100,10000,1,1492757,511261,0,0,1,495657,Theta(m*n) expected
-W2_search,LinkedList,100,1000,1,293562,75912,75912,0,1,500,Theta(m*n) expected
-W3_insert_front,LinkedList,100,1000,1,175049,1000,0,0,1,1038685203,Theta(m)
-W3_remove_front,LinkedList,100,1000,1,238105,1000,0,0,10,49500,Theta(m)
-W3_insert_middle,LinkedList,100,1000,1,375644,51000,0,0,1,1038685203,Theta(m*n)
-W3_remove_middle,LinkedList,100,1000,1,158039,51000,0,0,20,45540,Theta(m*n)
-W4_insert,MinHeap,100,100,1,13624,0,220,366,1,100,Theta(n) expected; O(n*log(n)) worst
-W4_extract,MinHeap,100,100,1,20072,0,855,923,1,4950,Theta(n*log(n)) expected; O(n*log(n)) worst
-W1_access,LinkedList,100,10000,2,1000209,511261,0,0,1,495657,Theta(m*n) expected
-W2_search,LinkedList,100,1000,2,229896,75912,75912,0,1,500,Theta(m*n) expected
-W3_insert_front,LinkedList,100,1000,2,218803,1000,0,0,1,1038685203,Theta(m)
-W3_remove_front,LinkedList,100,1000,2,76808,1000,0,0,10,49500,Theta(m)
-W3_insert_middle,LinkedList,100,1000,2,333009,51000,0,0,1,1038685203,Theta(m*n)
-W3_remove_middle,LinkedList,100,1000,2,138635,51000,0,0,20,45540,Theta(m*n)
-W1_access,DynamicArray,100,10000,2,207359,10000,0,0,1,495657,Theta(m)
-W2_search,DynamicArray,100,1000,2,168197,75912,75912,0,1,500,Theta(m*n) expected
-W3_insert_front,DynamicArray,100,1000,2,517005,1203840,0,601420,1,1038685203,Theta(m*n+m^2)
-W3_remove_front,DynamicArray,100,1000,2,113099,100000,0,49500,10,49500,Theta(m*n) under the batch protocol
-W3_insert_middle,DynamicArray,100,1000,2,485857,1103840,0,551420,1,1038685203,Theta(m*n+m^2)
-W3_remove_middle,DynamicArray,100,1000,2,96307,50000,0,24500,20,45540,Theta(m*n) under the batch protocol
-W4_insert,MinHeap,100,100,2,13479,0,220,366,1,100,Theta(n) expected; O(n*log(n)) worst
-W4_extract,MinHeap,100,100,2,20670,0,855,923,1,4950,Theta(n*log(n)) expected; O(n*log(n)) worst
-W1_access,DynamicArray,100,10000,3,160842,10000,0,0,1,495657,Theta(m)
-W2_search,DynamicArray,100,1000,3,162994,75912,75912,0,1,500,Theta(m*n) expected
-W3_insert_front,DynamicArray,100,1000,3,509339,1203840,0,601420,1,1038685203,Theta(m*n+m^2)
-W3_remove_front,DynamicArray,100,1000,3,108719,100000,0,49500,10,49500,Theta(m*n) under the batch protocol
-W3_insert_middle,DynamicArray,100,1000,3,601803,1103840,0,551420,1,1038685203,Theta(m*n+m^2)
-W3_remove_middle,DynamicArray,100,1000,3,94935,50000,0,24500,20,45540,Theta(m*n) under the batch protocol
-W1_access,LinkedList,100,10000,3,1016006,511261,0,0,1,495657,Theta(m*n) expected
-W2_search,LinkedList,100,1000,3,232771,75912,75912,0,1,500,Theta(m*n) expected
-W3_insert_front,LinkedList,100,1000,3,204202,1000,0,0,1,1038685203,Theta(m)
-W3_remove_front,LinkedList,100,1000,3,76172,1000,0,0,10,49500,Theta(m)
-W3_insert_middle,LinkedList,100,1000,3,291677,51000,0,0,1,1038685203,Theta(m*n)
-W3_remove_middle,LinkedList,100,1000,3,136341,51000,0,0,20,45540,Theta(m*n)
-W4_insert,MinHeap,100,100,3,34742,0,220,366,1,100,Theta(n) expected; O(n*log(n)) worst
-W4_extract,MinHeap,100,100,3,19993,0,855,923,1,4950,Theta(n*log(n)) expected; O(n*log(n)) worst
-W1_access,LinkedList,100,10000,4,895709,511261,0,0,1,495657,Theta(m*n) expected
-W2_search,LinkedList,100,1000,4,219092,75912,75912,0,1,500,Theta(m*n) expected
-W3_insert_front,LinkedList,100,1000,4,199089,1000,0,0,1,1038685203,Theta(m)
-W3_remove_front,LinkedList,100,1000,4,76450,1000,0,0,10,49500,Theta(m)
-W3_insert_middle,LinkedList,100,1000,4,243712,51000,0,0,1,1038685203,Theta(m*n)
-W3_remove_middle,LinkedList,100,1000,4,143009,51000,0,0,20,45540,Theta(m*n)
-W1_access,DynamicArray,100,10000,4,168785,10000,0,0,1,495657,Theta(m)
-W2_search,DynamicArray,100,1000,4,192116,75912,75912,0,1,500,Theta(m*n) expected
-W3_insert_front,DynamicArray,100,1000,4,527834,1203840,0,601420,1,1038685203,Theta(m*n+m^2)
-W3_remove_front,DynamicArray,100,1000,4,110159,100000,0,49500,10,49500,Theta(m*n) under the batch protocol
-W3_insert_middle,DynamicArray,100,1000,4,519463,1103840,0,551420,1,1038685203,Theta(m*n+m^2)
-W3_remove_middle,DynamicArray,100,1000,4,98853,50000,0,24500,20,45540,Theta(m*n) under the batch protocol
-W4_insert,MinHeap,100,100,4,14277,0,220,366,1,100,Theta(n) expected; O(n*log(n)) worst
-W4_extract,MinHeap,100,100,4,147976,0,855,923,1,4950,Theta(n*log(n)) expected; O(n*log(n)) worst
-W1_access,DynamicArray,100,10000,5,193414,10000,0,0,1,495657,Theta(m)
-W2_search,DynamicArray,100,1000,5,169457,75912,75912,0,1,500,Theta(m*n) expected
-W3_insert_front,DynamicArray,100,1000,5,513917,1203840,0,601420,1,1038685203,Theta(m*n+m^2)
-W3_remove_front,DynamicArray,100,1000,5,133356,100000,0,49500,10,49500,Theta(m*n) under the batch protocol
-W3_insert_middle,DynamicArray,100,1000,5,462463,1103840,0,551420,1,1038685203,Theta(m*n+m^2)
-W3_remove_middle,DynamicArray,100,1000,5,90735,50000,0,24500,20,45540,Theta(m*n) under the batch protocol
-W1_access,LinkedList,100,10000,5,906162,511261,0,0,1,495657,Theta(m*n) expected
-W2_search,LinkedList,100,1000,5,266331,75912,75912,0,1,500,Theta(m*n) expected
-W3_insert_front,LinkedList,100,1000,5,254844,1000,0,0,1,1038685203,Theta(m)
-W3_remove_front,LinkedList,100,1000,5,77352,1000,0,0,10,49500,Theta(m)
-W3_insert_middle,LinkedList,100,1000,5,215244,51000,0,0,1,1038685203,Theta(m*n)
-W3_remove_middle,LinkedList,100,1000,5,138529,51000,0,0,20,45540,Theta(m*n)
-W4_insert,MinHeap,100,100,5,14535,0,220,366,1,100,Theta(n) expected; O(n*log(n)) worst
-W4_extract,MinHeap,100,100,5,20173,0,855,923,1,4950,Theta(n*log(n)) expected; O(n*log(n)) worst
-W1_access,DynamicArray,1000,10000,1,201968,10000,0,0,1,4975613,Theta(m)
-W2_search,DynamicArray,1000,1000,1,587606,740571,740571,0,1,500,Theta(m*n) expected
-W3_insert_front,DynamicArray,1000,1000,1,999214,3002048,0,1500524,1,-658935720,Theta(m*n+m^2)
-W3_remove_front,DynamicArray,1000,1000,1,283999,1000000,0,499500,1,499500,Theta(m*n) under the batch protocol
-W3_insert_middle,DynamicArray,1000,1000,1,430863,2002048,0,1000524,1,-658935720,Theta(m*n+m^2)
-W3_remove_middle,DynamicArray,1000,1000,1,156266,500000,0,249500,2,496220,Theta(m*n) under the batch protocol
-W1_access,LinkedList,1000,10000,1,8713081,5021758,0,0,1,4975613,Theta(m*n) expected
-W2_search,LinkedList,1000,1000,1,1829838,740571,740571,0,1,500,Theta(m*n) expected
-W3_insert_front,LinkedList,1000,1000,1,188345,1000,0,0,1,-658935720,Theta(m)
-W3_remove_front,LinkedList,1000,1000,1,176228,1000,0,0,1,499500,Theta(m)
-W3_insert_middle,LinkedList,1000,1000,1,1045854,501000,0,0,1,-658935720,Theta(m*n)
-W3_remove_middle,LinkedList,1000,1000,1,874744,501000,0,0,2,496220,Theta(m*n)
-W4_insert,MinHeap,1000,1000,1,182580,0,2281,3576,1,1000,Theta(n) expected; O(n*log(n)) worst
-W4_extract,MinHeap,1000,1000,1,173032,0,15018,15695,1,499500,Theta(n*log(n)) expected; O(n*log(n)) worst
-W1_access,LinkedList,1000,10000,2,8464779,5021758,0,0,1,4975613,Theta(m*n) expected
-W2_search,LinkedList,1000,1000,2,2058449,740571,740571,0,1,500,Theta(m*n) expected
-W3_insert_front,LinkedList,1000,1000,2,190020,1000,0,0,1,-658935720,Theta(m)
-W3_remove_front,LinkedList,1000,1000,2,66940,1000,0,0,1,499500,Theta(m)
-W3_insert_middle,LinkedList,1000,1000,2,2407939,501000,0,0,1,-658935720,Theta(m*n)
-W3_remove_middle,LinkedList,1000,1000,2,751337,501000,0,0,2,496220,Theta(m*n)
-W1_access,DynamicArray,1000,10000,2,273796,10000,0,0,1,4975613,Theta(m)
-W2_search,DynamicArray,1000,1000,2,1040604,740571,740571,0,1,500,Theta(m*n) expected
-W3_insert_front,DynamicArray,1000,1000,2,991364,3002048,0,1500524,1,-658935720,Theta(m*n+m^2)
-W3_remove_front,DynamicArray,1000,1000,2,396857,1000000,0,499500,1,499500,Theta(m*n) under the batch protocol
-W3_insert_middle,DynamicArray,1000,1000,2,843318,2002048,0,1000524,1,-658935720,Theta(m*n+m^2)
-W3_remove_middle,DynamicArray,1000,1000,2,190375,500000,0,249500,2,496220,Theta(m*n) under the batch protocol
-W4_insert,MinHeap,1000,1000,2,196724,0,2281,3576,1,1000,Theta(n) expected; O(n*log(n)) worst
-W4_extract,MinHeap,1000,1000,2,133456,0,15018,15695,1,499500,Theta(n*log(n)) expected; O(n*log(n)) worst
-W1_access,DynamicArray,1000,10000,3,281289,10000,0,0,1,4975613,Theta(m)
-W2_search,DynamicArray,1000,1000,3,952157,740571,740571,0,1,500,Theta(m*n) expected
-W3_insert_front,DynamicArray,1000,1000,3,942010,3002048,0,1500524,1,-658935720,Theta(m*n+m^2)
-W3_remove_front,DynamicArray,1000,1000,3,359458,1000000,0,499500,1,499500,Theta(m*n) under the batch protocol
-W3_insert_middle,DynamicArray,1000,1000,3,649014,2002048,0,1000524,1,-658935720,Theta(m*n+m^2)
-W3_remove_middle,DynamicArray,1000,1000,3,253600,500000,0,249500,2,496220,Theta(m*n) under the batch protocol
-W1_access,LinkedList,1000,10000,3,8110491,5021758,0,0,1,4975613,Theta(m*n) expected
-W2_search,LinkedList,1000,1000,3,1780880,740571,740571,0,1,500,Theta(m*n) expected
-W3_insert_front,LinkedList,1000,1000,3,225944,1000,0,0,1,-658935720,Theta(m)
-W3_remove_front,LinkedList,1000,1000,3,21689,1000,0,0,1,499500,Theta(m)
-W3_insert_middle,LinkedList,1000,1000,3,1014239,501000,0,0,1,-658935720,Theta(m*n)
-W3_remove_middle,LinkedList,1000,1000,3,772962,501000,0,0,2,496220,Theta(m*n)
-W4_insert,MinHeap,1000,1000,3,177015,0,2281,3576,1,1000,Theta(n) expected; O(n*log(n)) worst
-W4_extract,MinHeap,1000,1000,3,128772,0,15018,15695,1,499500,Theta(n*log(n)) expected; O(n*log(n)) worst
-W1_access,LinkedList,1000,10000,4,7880928,5021758,0,0,1,4975613,Theta(m*n) expected
-W2_search,LinkedList,1000,1000,4,1863522,740571,740571,0,1,500,Theta(m*n) expected
-W3_insert_front,LinkedList,1000,1000,4,234045,1000,0,0,1,-658935720,Theta(m)
-W3_remove_front,LinkedList,1000,1000,4,23156,1000,0,0,1,499500,Theta(m)
-W3_insert_middle,LinkedList,1000,1000,4,1117236,501000,0,0,1,-658935720,Theta(m*n)
-W3_remove_middle,LinkedList,1000,1000,4,759625,501000,0,0,2,496220,Theta(m*n)
-W1_access,DynamicArray,1000,10000,4,324090,10000,0,0,1,4975613,Theta(m)
-W2_search,DynamicArray,1000,1000,4,1006749,740571,740571,0,1,500,Theta(m*n) expected
-W3_insert_front,DynamicArray,1000,1000,4,1016717,3002048,0,1500524,1,-658935720,Theta(m*n+m^2)
-W3_remove_front,DynamicArray,1000,1000,4,345106,1000000,0,499500,1,499500,Theta(m*n) under the batch protocol
-W3_insert_middle,DynamicArray,1000,1000,4,673696,2002048,0,1000524,1,-658935720,Theta(m*n+m^2)
-W3_remove_middle,DynamicArray,1000,1000,4,191836,500000,0,249500,2,496220,Theta(m*n) under the batch protocol
-W4_insert,MinHeap,1000,1000,4,202247,0,2281,3576,1,1000,Theta(n) expected; O(n*log(n)) worst
-W4_extract,MinHeap,1000,1000,4,128869,0,15018,15695,1,499500,Theta(n*log(n)) expected; O(n*log(n)) worst
-W1_access,DynamicArray,1000,10000,5,163513,10000,0,0,1,4975613,Theta(m)
-W2_search,DynamicArray,1000,1000,5,927708,740571,740571,0,1,500,Theta(m*n) expected
-W3_insert_front,DynamicArray,1000,1000,5,997564,3002048,0,1500524,1,-658935720,Theta(m*n+m^2)
-W3_remove_front,DynamicArray,1000,1000,5,336282,1000000,0,499500,1,499500,Theta(m*n) under the batch protocol
-W3_insert_middle,DynamicArray,1000,1000,5,688237,2002048,0,1000524,1,-658935720,Theta(m*n+m^2)
-W3_remove_middle,DynamicArray,1000,1000,5,195674,500000,0,249500,2,496220,Theta(m*n) under the batch protocol
-W1_access,LinkedList,1000,10000,5,8246007,5021758,0,0,1,4975613,Theta(m*n) expected
-W2_search,LinkedList,1000,1000,5,1801299,740571,740571,0,1,500,Theta(m*n) expected
-W3_insert_front,LinkedList,1000,1000,5,178965,1000,0,0,1,-658935720,Theta(m)
-W3_remove_front,LinkedList,1000,1000,5,22544,1000,0,0,1,499500,Theta(m)
-W3_insert_middle,LinkedList,1000,1000,5,989263,501000,0,0,1,-658935720,Theta(m*n)
-W3_remove_middle,LinkedList,1000,1000,5,769796,501000,0,0,2,496220,Theta(m*n)
-W4_insert,MinHeap,1000,1000,5,318877,0,2281,3576,1,1000,Theta(n) expected; O(n*log(n)) worst
-W4_extract,MinHeap,1000,1000,5,132108,0,15018,15695,1,499500,Theta(n*log(n)) expected; O(n*log(n)) worst
-W1_access,DynamicArray,10000,10000,1,184250,10000,0,0,1,50037577,Theta(m)
-W2_search,DynamicArray,10000,1000,1,9383015,7478562,7478562,0,1,500,Theta(m*n) expected
-W3_insert_front,DynamicArray,10000,1000,1,6262325,21000000,0,10499500,1,-1442757301,Theta(m*n+m^2)
-W3_remove_front,DynamicArray,10000,1000,1,6160958,19000000,0,9499500,1,5158591,Theta(m*n) under the batch protocol
-W3_insert_middle,DynamicArray,10000,1000,1,3221512,11000000,0,5499500,1,-1442757301,Theta(m*n+m^2)
-W3_remove_middle,DynamicArray,10000,1000,1,2973492,9000000,0,4499500,1,5068024,Theta(m*n) under the batch protocol
-W1_access,LinkedList,10000,10000,1,90109879,50177030,0,0,1,50037577,Theta(m*n) expected
-W2_search,LinkedList,10000,1000,1,18577535,7478562,7478562,0,1,500,Theta(m*n) expected
-W3_insert_front,LinkedList,10000,1000,1,572320,1000,0,0,1,-1442757301,Theta(m)
-W3_remove_front,LinkedList,10000,1000,1,12765,1000,0,0,1,5158591,Theta(m)
-W3_insert_middle,LinkedList,10000,1000,1,8900341,5001000,0,0,1,-1442757301,Theta(m*n)
-W3_remove_middle,LinkedList,10000,1000,1,8166211,5001000,0,0,1,5068024,Theta(m*n)
-W4_insert,MinHeap,10000,10000,1,1414524,0,22918,42234,1,10000,Theta(n) expected; O(n*log(n)) worst
-W4_extract,MinHeap,10000,10000,1,1806915,0,216624,223541,1,49995000,Theta(n*log(n)) expected; O(n*log(n)) worst
-W1_access,LinkedList,10000,10000,2,84148112,50177030,0,0,1,50037577,Theta(m*n) expected
-W2_search,LinkedList,10000,1000,2,17339752,7478562,7478562,0,1,500,Theta(m*n) expected
-W3_insert_front,LinkedList,10000,1000,2,270330,1000,0,0,1,-1442757301,Theta(m)
-W3_remove_front,LinkedList,10000,1000,2,23441,1000,0,0,1,5158591,Theta(m)
-W3_insert_middle,LinkedList,10000,1000,2,8344883,5001000,0,0,1,-1442757301,Theta(m*n)
-W3_remove_middle,LinkedList,10000,1000,2,8206893,5001000,0,0,1,5068024,Theta(m*n)
-W1_access,DynamicArray,10000,10000,2,651361,10000,0,0,1,50037577,Theta(m)
-W2_search,DynamicArray,10000,1000,2,8090372,7478562,7478562,0,1,500,Theta(m*n) expected
-W3_insert_front,DynamicArray,10000,1000,2,5418093,21000000,0,10499500,1,-1442757301,Theta(m*n+m^2)
-W3_remove_front,DynamicArray,10000,1000,2,6748259,19000000,0,9499500,1,5158591,Theta(m*n) under the batch protocol
-W3_insert_middle,DynamicArray,10000,1000,2,2889992,11000000,0,5499500,1,-1442757301,Theta(m*n+m^2)
-W3_remove_middle,DynamicArray,10000,1000,2,2812589,9000000,0,4499500,1,5068024,Theta(m*n) under the batch protocol
-W4_insert,MinHeap,10000,10000,2,1502130,0,22918,42234,1,10000,Theta(n) expected; O(n*log(n)) worst
-W4_extract,MinHeap,10000,10000,2,1855975,0,216624,223541,1,49995000,Theta(n*log(n)) expected; O(n*log(n)) worst
-W1_access,DynamicArray,10000,10000,3,167324,10000,0,0,1,50037577,Theta(m)
-W2_search,DynamicArray,10000,1000,3,9625042,7478562,7478562,0,1,500,Theta(m*n) expected
-W3_insert_front,DynamicArray,10000,1000,3,6535723,21000000,0,10499500,1,-1442757301,Theta(m*n+m^2)
-W3_remove_front,DynamicArray,10000,1000,3,6734357,19000000,0,9499500,1,5158591,Theta(m*n) under the batch protocol
-W3_insert_middle,DynamicArray,10000,1000,3,3538987,11000000,0,5499500,1,-1442757301,Theta(m*n+m^2)
-W3_remove_middle,DynamicArray,10000,1000,3,2919883,9000000,0,4499500,1,5068024,Theta(m*n) under the batch protocol
-W1_access,LinkedList,10000,10000,3,120027803,50177030,0,0,1,50037577,Theta(m*n) expected
-W2_search,LinkedList,10000,1000,3,17869740,7478562,7478562,0,1,500,Theta(m*n) expected
-W3_insert_front,LinkedList,10000,1000,3,138435,1000,0,0,1,-1442757301,Theta(m)
-W3_remove_front,LinkedList,10000,1000,3,14010,1000,0,0,1,5158591,Theta(m)
-W3_insert_middle,LinkedList,10000,1000,3,9002111,5001000,0,0,1,-1442757301,Theta(m*n)
-W3_remove_middle,LinkedList,10000,1000,3,8069145,5001000,0,0,1,5068024,Theta(m*n)
-W4_insert,MinHeap,10000,10000,3,917824,0,22918,42234,1,10000,Theta(n) expected; O(n*log(n)) worst
-W4_extract,MinHeap,10000,10000,3,1417225,0,216624,223541,1,49995000,Theta(n*log(n)) expected; O(n*log(n)) worst
-W1_access,LinkedList,10000,10000,4,78261030,50177030,0,0,1,50037577,Theta(m*n) expected
-W2_search,LinkedList,10000,1000,4,18046993,7478562,7478562,0,1,500,Theta(m*n) expected
-W3_insert_front,LinkedList,10000,1000,4,241606,1000,0,0,1,-1442757301,Theta(m)
-W3_remove_front,LinkedList,10000,1000,4,91013,1000,0,0,1,5158591,Theta(m)
-W3_insert_middle,LinkedList,10000,1000,4,8067320,5001000,0,0,1,-1442757301,Theta(m*n)
-W3_remove_middle,LinkedList,10000,1000,4,7674429,5001000,0,0,1,5068024,Theta(m*n)
-W1_access,DynamicArray,10000,10000,4,26866,10000,0,0,1,50037577,Theta(m)
-W2_search,DynamicArray,10000,1000,4,6183317,7478562,7478562,0,1,500,Theta(m*n) expected
-W3_insert_front,DynamicArray,10000,1000,4,4654357,21000000,0,10499500,1,-1442757301,Theta(m*n+m^2)
-W3_remove_front,DynamicArray,10000,1000,4,6280132,19000000,0,9499500,1,5158591,Theta(m*n) under the batch protocol
-W3_insert_middle,DynamicArray,10000,1000,4,2603293,11000000,0,5499500,1,-1442757301,Theta(m*n+m^2)
-W3_remove_middle,DynamicArray,10000,1000,4,3110262,9000000,0,4499500,1,5068024,Theta(m*n) under the batch protocol
-W4_insert,MinHeap,10000,10000,4,927777,0,22918,42234,1,10000,Theta(n) expected; O(n*log(n)) worst
-W4_extract,MinHeap,10000,10000,4,1369990,0,216624,223541,1,49995000,Theta(n*log(n)) expected; O(n*log(n)) worst
-W1_access,DynamicArray,10000,10000,5,47530,10000,0,0,1,50037577,Theta(m)
-W2_search,DynamicArray,10000,1000,5,9591345,7478562,7478562,0,1,500,Theta(m*n) expected
-W3_insert_front,DynamicArray,10000,1000,5,6556990,21000000,0,10499500,1,-1442757301,Theta(m*n+m^2)
-W3_remove_front,DynamicArray,10000,1000,5,7188775,19000000,0,9499500,1,5158591,Theta(m*n) under the batch protocol
-W3_insert_middle,DynamicArray,10000,1000,5,3276660,11000000,0,5499500,1,-1442757301,Theta(m*n+m^2)
-W3_remove_middle,DynamicArray,10000,1000,5,3342114,9000000,0,4499500,1,5068024,Theta(m*n) under the batch protocol
-W1_access,LinkedList,10000,10000,5,84925304,50177030,0,0,1,50037577,Theta(m*n) expected
-W2_search,LinkedList,10000,1000,5,23011818,7478562,7478562,0,1,500,Theta(m*n) expected
-W3_insert_front,LinkedList,10000,1000,5,70572,1000,0,0,1,-1442757301,Theta(m)
-W3_remove_front,LinkedList,10000,1000,5,73201,1000,0,0,1,5158591,Theta(m)
-W3_insert_middle,LinkedList,10000,1000,5,7598648,5001000,0,0,1,-1442757301,Theta(m*n)
-W3_remove_middle,LinkedList,10000,1000,5,7995909,5001000,0,0,1,5068024,Theta(m*n)
-W4_insert,MinHeap,10000,10000,5,466579,0,22918,42234,1,10000,Theta(n) expected; O(n*log(n)) worst
-W4_extract,MinHeap,10000,10000,5,800966,0,216624,223541,1,49995000,Theta(n*log(n)) expected; O(n*log(n)) worst
-W1_access,DynamicArray,100000,10000,1,36454,10000,0,0,1,489787872,Theta(m)
-W2_search,DynamicArray,100000,1000,1,58613224,74864907,74864907,0,1,500,Theta(m*n) expected
-W3_insert_front,DynamicArray,100000,1000,1,39731658,201000000,0,100499500,1,1530055032,Theta(m*n+m^2)
-W3_remove_front,DynamicArray,100000,1000,1,48222989,199000000,0,99499500,1,50508168,Theta(m*n) under the batch protocol
-W3_insert_middle,DynamicArray,100000,1000,1,19836466,101000000,0,50499500,1,1530055032,Theta(m*n+m^2)
-W3_remove_middle,DynamicArray,100000,1000,1,27170422,99000000,0,49499500,1,49487957,Theta(m*n) under the batch protocol
-W1_access,LinkedList,100000,10000,1,941224949,505044105,0,0,1,489787872,Theta(m*n) expected
-W2_search,LinkedList,100000,1000,1,203981873,74864907,74864907,0,1,500,Theta(m*n) expected
-W3_insert_front,LinkedList,100000,1000,1,96502,1000,0,0,1,1530055032,Theta(m)
-W3_remove_front,LinkedList,100000,1000,1,4327,1000,0,0,1,50508168,Theta(m)
-W3_insert_middle,LinkedList,100000,1000,1,101279468,50001000,0,0,1,1530055032,Theta(m*n)
-W3_remove_middle,LinkedList,100000,1000,1,88912992,50001000,0,0,1,49487957,Theta(m*n)
-W4_insert,MinHeap,100000,100000,1,6578434,0,227941,386962,1,100000,Theta(n) expected; O(n*log(n)) worst
-W4_extract,MinHeap,100000,100000,1,13675996,0,2831730,2901807,1,4999950000,Theta(n*log(n)) expected; O(n*log(n)) worst
-W1_access,LinkedList,100000,10000,2,939996910,505044105,0,0,1,489787872,Theta(m*n) expected
-W2_search,LinkedList,100000,1000,2,194226279,74864907,74864907,0,1,500,Theta(m*n) expected
-W3_insert_front,LinkedList,100000,1000,2,99727,1000,0,0,1,1530055032,Theta(m)
-W3_remove_front,LinkedList,100000,1000,2,7456,1000,0,0,1,50508168,Theta(m)
-W3_insert_middle,LinkedList,100000,1000,2,106349501,50001000,0,0,1,1530055032,Theta(m*n)
-W3_remove_middle,LinkedList,100000,1000,2,102656153,50001000,0,0,1,49487957,Theta(m*n)
-W1_access,DynamicArray,100000,10000,2,36372,10000,0,0,1,489787872,Theta(m)
-W2_search,DynamicArray,100000,1000,2,66386820,74864907,74864907,0,1,500,Theta(m*n) expected
-W3_insert_front,DynamicArray,100000,1000,2,41969917,201000000,0,100499500,1,1530055032,Theta(m*n+m^2)
-W3_remove_front,DynamicArray,100000,1000,2,66185670,199000000,0,99499500,1,50508168,Theta(m*n) under the batch protocol
-W3_insert_middle,DynamicArray,100000,1000,2,23705601,101000000,0,50499500,1,1530055032,Theta(m*n+m^2)
-W3_remove_middle,DynamicArray,100000,1000,2,38177075,99000000,0,49499500,1,49487957,Theta(m*n) under the batch protocol
-W4_insert,MinHeap,100000,100000,2,4873990,0,227941,386962,1,100000,Theta(n) expected; O(n*log(n)) worst
-W4_extract,MinHeap,100000,100000,2,18317807,0,2831730,2901807,1,4999950000,Theta(n*log(n)) expected; O(n*log(n)) worst
-W1_access,DynamicArray,100000,10000,3,40813,10000,0,0,1,489787872,Theta(m)
-W2_search,DynamicArray,100000,1000,3,70917252,74864907,74864907,0,1,500,Theta(m*n) expected
-W3_insert_front,DynamicArray,100000,1000,3,48040388,201000000,0,100499500,1,1530055032,Theta(m*n+m^2)
-W3_remove_front,DynamicArray,100000,1000,3,57925176,199000000,0,99499500,1,50508168,Theta(m*n) under the batch protocol
-W3_insert_middle,DynamicArray,100000,1000,3,21254634,101000000,0,50499500,1,1530055032,Theta(m*n+m^2)
-W3_remove_middle,DynamicArray,100000,1000,3,28737190,99000000,0,49499500,1,49487957,Theta(m*n) under the batch protocol
-W1_access,LinkedList,100000,10000,3,931090657,505044105,0,0,1,489787872,Theta(m*n) expected
-W2_search,LinkedList,100000,1000,3,179652849,74864907,74864907,0,1,500,Theta(m*n) expected
-W3_insert_front,LinkedList,100000,1000,3,15812,1000,0,0,1,1530055032,Theta(m)
-W3_remove_front,LinkedList,100000,1000,3,6460,1000,0,0,1,50508168,Theta(m)
-W3_insert_middle,LinkedList,100000,1000,3,84689001,50001000,0,0,1,1530055032,Theta(m*n)
-W3_remove_middle,LinkedList,100000,1000,3,82587265,50001000,0,0,1,49487957,Theta(m*n)
-W4_insert,MinHeap,100000,100000,3,1964912,0,227941,386962,1,100000,Theta(n) expected; O(n*log(n)) worst
-W4_extract,MinHeap,100000,100000,3,12681154,0,2831730,2901807,1,4999950000,Theta(n*log(n)) expected; O(n*log(n)) worst
-W1_access,LinkedList,100000,10000,4,840155687,505044105,0,0,1,489787872,Theta(m*n) expected
-W2_search,LinkedList,100000,1000,4,167785532,74864907,74864907,0,1,500,Theta(m*n) expected
-W3_insert_front,LinkedList,100000,1000,4,15566,1000,0,0,1,1530055032,Theta(m)
-W3_remove_front,LinkedList,100000,1000,4,8107,1000,0,0,1,50508168,Theta(m)
-W3_insert_middle,LinkedList,100000,1000,4,79662446,50001000,0,0,1,1530055032,Theta(m*n)
-W3_remove_middle,LinkedList,100000,1000,4,80949781,50001000,0,0,1,49487957,Theta(m*n)
-W1_access,DynamicArray,100000,10000,4,30625,10000,0,0,1,489787872,Theta(m)
-W2_search,DynamicArray,100000,1000,4,59349164,74864907,74864907,0,1,500,Theta(m*n) expected
-W3_insert_front,DynamicArray,100000,1000,4,44652626,201000000,0,100499500,1,1530055032,Theta(m*n+m^2)
-W3_remove_front,DynamicArray,100000,1000,4,54967593,199000000,0,99499500,1,50508168,Theta(m*n) under the batch protocol
-W3_insert_middle,DynamicArray,100000,1000,4,21050130,101000000,0,50499500,1,1530055032,Theta(m*n+m^2)
-W3_remove_middle,DynamicArray,100000,1000,4,30574351,99000000,0,49499500,1,49487957,Theta(m*n) under the batch protocol
-W4_insert,MinHeap,100000,100000,4,4696725,0,227941,386962,1,100000,Theta(n) expected; O(n*log(n)) worst
-W4_extract,MinHeap,100000,100000,4,14103024,0,2831730,2901807,1,4999950000,Theta(n*log(n)) expected; O(n*log(n)) worst
-W1_access,DynamicArray,100000,10000,5,44534,10000,0,0,1,489787872,Theta(m)
-W2_search,DynamicArray,100000,1000,5,59291846,74864907,74864907,0,1,500,Theta(m*n) expected
-W3_insert_front,DynamicArray,100000,1000,5,42409161,201000000,0,100499500,1,1530055032,Theta(m*n+m^2)
-W3_remove_front,DynamicArray,100000,1000,5,54772141,199000000,0,99499500,1,50508168,Theta(m*n) under the batch protocol
-W3_insert_middle,DynamicArray,100000,1000,5,20481420,101000000,0,50499500,1,1530055032,Theta(m*n+m^2)
-W3_remove_middle,DynamicArray,100000,1000,5,27055346,99000000,0,49499500,1,49487957,Theta(m*n) under the batch protocol
-W1_access,LinkedList,100000,10000,5,804107810,505044105,0,0,1,489787872,Theta(m*n) expected
-W2_search,LinkedList,100000,1000,5,167313367,74864907,74864907,0,1,500,Theta(m*n) expected
-W3_insert_front,LinkedList,100000,1000,5,95542,1000,0,0,1,1530055032,Theta(m)
-W3_remove_front,LinkedList,100000,1000,5,5109,1000,0,0,1,50508168,Theta(m)
-W3_insert_middle,LinkedList,100000,1000,5,86977280,50001000,0,0,1,1530055032,Theta(m*n)
-W3_remove_middle,LinkedList,100000,1000,5,87717604,50001000,0,0,1,49487957,Theta(m*n)
-W4_insert,MinHeap,100000,100000,5,5534420,0,227941,386962,1,100000,Theta(n) expected; O(n*log(n)) worst
-W4_extract,MinHeap,100000,100000,5,13369906,0,2831730,2901807,1,4999950000,Theta(n*log(n)) expected; O(n*log(n)) worst
+W1_access,DynamicArray,100,10000,1,171583,10000,0,0,1,495657,Theta(m)
+W2_search,DynamicArray,100,1000,1,219397,75912,75912,0,1,500,Theta(m*n) expected
+W3_insert_front,DynamicArray,100,1000,1,624313,1203840,0,601420,1,1038685203,Theta(m*n+m^2)
+W3_remove_front,DynamicArray,100,1000,1,582416,100000,0,49500,10,49500,Theta(m*n) under the batch protocol
+W3_insert_middle,DynamicArray,100,1000,1,292605,1103840,0,551420,1,1038685203,Theta(m*n+m^2)
+W3_remove_middle,DynamicArray,100,1000,1,194545,50000,0,24500,20,45540,Theta(m*n) under the batch protocol
+W1_access,LinkedList,100,10000,1,1108516,511261,0,0,1,495657,Theta(m*n) expected
+W2_search,LinkedList,100,1000,1,250071,75912,75912,0,1,500,Theta(m*n) expected
+W3_insert_front,LinkedList,100,1000,1,142230,1000,0,0,1,1038685203,Theta(m)
+W3_remove_front,LinkedList,100,1000,1,46559,1000,0,0,10,49500,Theta(m)
+W3_insert_middle,LinkedList,100,1000,1,206285,51000,0,0,1,1038685203,Theta(m*n)
+W3_remove_middle,LinkedList,100,1000,1,132324,51000,0,0,20,45540,Theta(m*n)
+W4_insert,MinHeap,100,100,1,57091,0,220,366,1,100,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,100,100,1,21204,0,855,923,1,4950,Theta(n*log(n)) expected; O(n*log(n)) worst
+W1_access,LinkedList,100,10000,2,754931,511261,0,0,1,495657,Theta(m*n) expected
+W2_search,LinkedList,100,1000,2,272077,75912,75912,0,1,500,Theta(m*n) expected
+W3_insert_front,LinkedList,100,1000,2,162387,1000,0,0,1,1038685203,Theta(m)
+W3_remove_front,LinkedList,100,1000,2,49223,1000,0,0,10,49500,Theta(m)
+W3_insert_middle,LinkedList,100,1000,2,205175,51000,0,0,1,1038685203,Theta(m*n)
+W3_remove_middle,LinkedList,100,1000,2,133156,51000,0,0,20,45540,Theta(m*n)
+W1_access,DynamicArray,100,10000,2,77077,10000,0,0,1,495657,Theta(m)
+W2_search,DynamicArray,100,1000,2,94007,75912,75912,0,1,500,Theta(m*n) expected
+W3_insert_front,DynamicArray,100,1000,2,611624,1203840,0,601420,1,1038685203,Theta(m*n+m^2)
+W3_remove_front,DynamicArray,100,1000,2,78762,100000,0,49500,10,49500,Theta(m*n) under the batch protocol
+W3_insert_middle,DynamicArray,100,1000,2,313231,1103840,0,551420,1,1038685203,Theta(m*n+m^2)
+W3_remove_middle,DynamicArray,100,1000,2,52389,50000,0,24500,20,45540,Theta(m*n) under the batch protocol
+W4_insert,MinHeap,100,100,2,9164,0,220,366,1,100,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,100,100,2,13240,0,855,923,1,4950,Theta(n*log(n)) expected; O(n*log(n)) worst
+W1_access,DynamicArray,100,10000,3,76851,10000,0,0,1,495657,Theta(m)
+W2_search,DynamicArray,100,1000,3,90851,75912,75912,0,1,500,Theta(m*n) expected
+W3_insert_front,DynamicArray,100,1000,3,322814,1203840,0,601420,1,1038685203,Theta(m*n+m^2)
+W3_remove_front,DynamicArray,100,1000,3,63381,100000,0,49500,10,49500,Theta(m*n) under the batch protocol
+W3_insert_middle,DynamicArray,100,1000,3,560618,1103840,0,551420,1,1038685203,Theta(m*n+m^2)
+W3_remove_middle,DynamicArray,100,1000,3,55236,50000,0,24500,20,45540,Theta(m*n) under the batch protocol
+W1_access,LinkedList,100,10000,3,777166,511261,0,0,1,495657,Theta(m*n) expected
+W2_search,LinkedList,100,1000,3,222611,75912,75912,0,1,500,Theta(m*n) expected
+W3_insert_front,LinkedList,100,1000,3,372242,1000,0,0,1,1038685203,Theta(m)
+W3_remove_front,LinkedList,100,1000,3,46888,1000,0,0,10,49500,Theta(m)
+W3_insert_middle,LinkedList,100,1000,3,223987,51000,0,0,1,1038685203,Theta(m*n)
+W3_remove_middle,LinkedList,100,1000,3,115442,51000,0,0,20,45540,Theta(m*n)
+W4_insert,MinHeap,100,100,3,7980,0,220,366,1,100,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,100,100,3,12299,0,855,923,1,4950,Theta(n*log(n)) expected; O(n*log(n)) worst
+W1_access,LinkedList,100,10000,4,753643,511261,0,0,1,495657,Theta(m*n) expected
+W2_search,LinkedList,100,1000,4,224004,75912,75912,0,1,500,Theta(m*n) expected
+W3_insert_front,LinkedList,100,1000,4,138647,1000,0,0,1,1038685203,Theta(m)
+W3_remove_front,LinkedList,100,1000,4,48248,1000,0,0,10,49500,Theta(m)
+W3_insert_middle,LinkedList,100,1000,4,202816,51000,0,0,1,1038685203,Theta(m*n)
+W3_remove_middle,LinkedList,100,1000,4,114577,51000,0,0,20,45540,Theta(m*n)
+W1_access,DynamicArray,100,10000,4,76821,10000,0,0,1,495657,Theta(m)
+W2_search,DynamicArray,100,1000,4,91540,75912,75912,0,1,500,Theta(m*n) expected
+W3_insert_front,DynamicArray,100,1000,4,404756,1203840,0,601420,1,1038685203,Theta(m*n+m^2)
+W3_remove_front,DynamicArray,100,1000,4,80874,100000,0,49500,10,49500,Theta(m*n) under the batch protocol
+W3_insert_middle,DynamicArray,100,1000,4,325288,1103840,0,551420,1,1038685203,Theta(m*n+m^2)
+W3_remove_middle,DynamicArray,100,1000,4,53825,50000,0,24500,20,45540,Theta(m*n) under the batch protocol
+W4_insert,MinHeap,100,100,4,7662,0,220,366,1,100,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,100,100,4,12520,0,855,923,1,4950,Theta(n*log(n)) expected; O(n*log(n)) worst
+W1_access,DynamicArray,100,10000,5,77200,10000,0,0,1,495657,Theta(m)
+W2_search,DynamicArray,100,1000,5,90528,75912,75912,0,1,500,Theta(m*n) expected
+W3_insert_front,DynamicArray,100,1000,5,443934,1203840,0,601420,1,1038685203,Theta(m*n+m^2)
+W3_remove_front,DynamicArray,100,1000,5,60814,100000,0,49500,10,49500,Theta(m*n) under the batch protocol
+W3_insert_middle,DynamicArray,100,1000,5,289294,1103840,0,551420,1,1038685203,Theta(m*n+m^2)
+W3_remove_middle,DynamicArray,100,1000,5,52011,50000,0,24500,20,45540,Theta(m*n) under the batch protocol
+W1_access,LinkedList,100,10000,5,761912,511261,0,0,1,495657,Theta(m*n) expected
+W2_search,LinkedList,100,1000,5,221637,75912,75912,0,1,500,Theta(m*n) expected
+W3_insert_front,LinkedList,100,1000,5,156908,1000,0,0,1,1038685203,Theta(m)
+W3_remove_front,LinkedList,100,1000,5,47808,1000,0,0,10,49500,Theta(m)
+W3_insert_middle,LinkedList,100,1000,5,201937,51000,0,0,1,1038685203,Theta(m*n)
+W3_remove_middle,LinkedList,100,1000,5,143610,51000,0,0,20,45540,Theta(m*n)
+W4_insert,MinHeap,100,100,5,22015,0,220,366,1,100,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,100,100,5,11899,0,855,923,1,4950,Theta(n*log(n)) expected; O(n*log(n)) worst
+W1_access,DynamicArray,1000,10000,1,29510,10000,0,0,1,4975613,Theta(m)
+W2_search,DynamicArray,1000,1000,1,528060,740571,740571,0,1,500,Theta(m*n) expected
+W3_insert_front,DynamicArray,1000,1000,1,610394,3002048,0,1500524,1,-658935720,Theta(m*n+m^2)
+W3_remove_front,DynamicArray,1000,1000,1,274826,1000000,0,499500,1,499500,Theta(m*n) under the batch protocol
+W3_insert_middle,DynamicArray,1000,1000,1,428233,2002048,0,1000524,1,-658935720,Theta(m*n+m^2)
+W3_remove_middle,DynamicArray,1000,1000,1,152236,500000,0,249500,2,496220,Theta(m*n) under the batch protocol
+W1_access,LinkedList,1000,10000,1,10308332,5021758,0,0,1,4975613,Theta(m*n) expected
+W2_search,LinkedList,1000,1000,1,1979078,740571,740571,0,1,500,Theta(m*n) expected
+W3_insert_front,LinkedList,1000,1000,1,142409,1000,0,0,1,-658935720,Theta(m)
+W3_remove_front,LinkedList,1000,1000,1,64193,1000,0,0,1,499500,Theta(m)
+W3_insert_middle,LinkedList,1000,1000,1,1339051,501000,0,0,1,-658935720,Theta(m*n)
+W3_remove_middle,LinkedList,1000,1000,1,1019791,501000,0,0,2,496220,Theta(m*n)
+W4_insert,MinHeap,1000,1000,1,2255218,0,2281,3576,1,1000,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,1000,1000,1,231130,0,15018,15695,1,499500,Theta(n*log(n)) expected; O(n*log(n)) worst
+W1_access,LinkedList,1000,10000,2,11414972,5021758,0,0,1,4975613,Theta(m*n) expected
+W2_search,LinkedList,1000,1000,2,1891630,740571,740571,0,1,500,Theta(m*n) expected
+W3_insert_front,LinkedList,1000,1000,2,174171,1000,0,0,1,-658935720,Theta(m)
+W3_remove_front,LinkedList,1000,1000,2,19845,1000,0,0,1,499500,Theta(m)
+W3_insert_middle,LinkedList,1000,1000,2,1114708,501000,0,0,1,-658935720,Theta(m*n)
+W3_remove_middle,LinkedList,1000,1000,2,1054581,501000,0,0,2,496220,Theta(m*n)
+W1_access,DynamicArray,1000,10000,2,57304,10000,0,0,1,4975613,Theta(m)
+W2_search,DynamicArray,1000,1000,2,616648,740571,740571,0,1,500,Theta(m*n) expected
+W3_insert_front,DynamicArray,1000,1000,2,828982,3002048,0,1500524,1,-658935720,Theta(m*n+m^2)
+W3_remove_front,DynamicArray,1000,1000,2,273419,1000000,0,499500,1,499500,Theta(m*n) under the batch protocol
+W3_insert_middle,DynamicArray,1000,1000,2,508187,2002048,0,1000524,1,-658935720,Theta(m*n+m^2)
+W3_remove_middle,DynamicArray,1000,1000,2,126550,500000,0,249500,2,496220,Theta(m*n) under the batch protocol
+W4_insert,MinHeap,1000,1000,2,105125,0,2281,3576,1,1000,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,1000,1000,2,191522,0,15018,15695,1,499500,Theta(n*log(n)) expected; O(n*log(n)) worst
+W1_access,DynamicArray,1000,10000,3,29517,10000,0,0,1,4975613,Theta(m)
+W2_search,DynamicArray,1000,1000,3,512282,740571,740571,0,1,500,Theta(m*n) expected
+W3_insert_front,DynamicArray,1000,1000,3,625701,3002048,0,1500524,1,-658935720,Theta(m*n+m^2)
+W3_remove_front,DynamicArray,1000,1000,3,250129,1000000,0,499500,1,499500,Theta(m*n) under the batch protocol
+W3_insert_middle,DynamicArray,1000,1000,3,427465,2002048,0,1000524,1,-658935720,Theta(m*n+m^2)
+W3_remove_middle,DynamicArray,1000,1000,3,120750,500000,0,249500,2,496220,Theta(m*n) under the batch protocol
+W1_access,LinkedList,1000,10000,3,10277615,5021758,0,0,1,4975613,Theta(m*n) expected
+W2_search,LinkedList,1000,1000,3,2020988,740571,740571,0,1,500,Theta(m*n) expected
+W3_insert_front,LinkedList,1000,1000,3,127941,1000,0,0,1,-658935720,Theta(m)
+W3_remove_front,LinkedList,1000,1000,3,11621,1000,0,0,1,499500,Theta(m)
+W3_insert_middle,LinkedList,1000,1000,3,1107899,501000,0,0,1,-658935720,Theta(m*n)
+W3_remove_middle,LinkedList,1000,1000,3,995401,501000,0,0,2,496220,Theta(m*n)
+W4_insert,MinHeap,1000,1000,3,225857,0,2281,3576,1,1000,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,1000,1000,3,178966,0,15018,15695,1,499500,Theta(n*log(n)) expected; O(n*log(n)) worst
+W1_access,LinkedList,1000,10000,4,10823782,5021758,0,0,1,4975613,Theta(m*n) expected
+W2_search,LinkedList,1000,1000,4,1873853,740571,740571,0,1,500,Theta(m*n) expected
+W3_insert_front,LinkedList,1000,1000,4,161264,1000,0,0,1,-658935720,Theta(m)
+W3_remove_front,LinkedList,1000,1000,4,10614,1000,0,0,1,499500,Theta(m)
+W3_insert_middle,LinkedList,1000,1000,4,1131002,501000,0,0,1,-658935720,Theta(m*n)
+W3_remove_middle,LinkedList,1000,1000,4,1098809,501000,0,0,2,496220,Theta(m*n)
+W1_access,DynamicArray,1000,10000,4,79605,10000,0,0,1,4975613,Theta(m)
+W2_search,DynamicArray,1000,1000,4,888187,740571,740571,0,1,500,Theta(m*n) expected
+W3_insert_front,DynamicArray,1000,1000,4,765986,3002048,0,1500524,1,-658935720,Theta(m*n+m^2)
+W3_remove_front,DynamicArray,1000,1000,4,240736,1000000,0,499500,1,499500,Theta(m*n) under the batch protocol
+W3_insert_middle,DynamicArray,1000,1000,4,471254,2002048,0,1000524,1,-658935720,Theta(m*n+m^2)
+W3_remove_middle,DynamicArray,1000,1000,4,130257,500000,0,249500,2,496220,Theta(m*n) under the batch protocol
+W4_insert,MinHeap,1000,1000,4,127918,0,2281,3576,1,1000,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,1000,1000,4,110358,0,15018,15695,1,499500,Theta(n*log(n)) expected; O(n*log(n)) worst
+W1_access,DynamicArray,1000,10000,5,80447,10000,0,0,1,4975613,Theta(m)
+W2_search,DynamicArray,1000,1000,5,521661,740571,740571,0,1,500,Theta(m*n) expected
+W3_insert_front,DynamicArray,1000,1000,5,610106,3002048,0,1500524,1,-658935720,Theta(m*n+m^2)
+W3_remove_front,DynamicArray,1000,1000,5,235226,1000000,0,499500,1,499500,Theta(m*n) under the batch protocol
+W3_insert_middle,DynamicArray,1000,1000,5,447081,2002048,0,1000524,1,-658935720,Theta(m*n+m^2)
+W3_remove_middle,DynamicArray,1000,1000,5,134584,500000,0,249500,2,496220,Theta(m*n) under the batch protocol
+W1_access,LinkedList,1000,10000,5,10144375,5021758,0,0,1,4975613,Theta(m*n) expected
+W2_search,LinkedList,1000,1000,5,1872317,740571,740571,0,1,500,Theta(m*n) expected
+W3_insert_front,LinkedList,1000,1000,5,171690,1000,0,0,1,-658935720,Theta(m)
+W3_remove_front,LinkedList,1000,1000,5,10553,1000,0,0,1,499500,Theta(m)
+W3_insert_middle,LinkedList,1000,1000,5,2091798,501000,0,0,1,-658935720,Theta(m*n)
+W3_remove_middle,LinkedList,1000,1000,5,1369501,501000,0,0,2,496220,Theta(m*n)
+W4_insert,MinHeap,1000,1000,5,413556,0,2281,3576,1,1000,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,1000,1000,5,94866,0,15018,15695,1,499500,Theta(n*log(n)) expected; O(n*log(n)) worst
+W1_access,DynamicArray,10000,10000,1,68150,10000,0,0,1,50037577,Theta(m)
+W2_search,DynamicArray,10000,1000,1,10108353,7478562,7478562,0,1,500,Theta(m*n) expected
+W3_insert_front,DynamicArray,10000,1000,1,6470690,21000000,0,10499500,1,-1442757301,Theta(m*n+m^2)
+W3_remove_front,DynamicArray,10000,1000,1,4864301,19000000,0,9499500,1,5158591,Theta(m*n) under the batch protocol
+W3_insert_middle,DynamicArray,10000,1000,1,3267101,11000000,0,5499500,1,-1442757301,Theta(m*n+m^2)
+W3_remove_middle,DynamicArray,10000,1000,1,2551635,9000000,0,4499500,1,5068024,Theta(m*n) under the batch protocol
+W1_access,LinkedList,10000,10000,1,127057217,50177030,0,0,1,50037577,Theta(m*n) expected
+W2_search,LinkedList,10000,1000,1,21183846,7478562,7478562,0,1,500,Theta(m*n) expected
+W3_insert_front,LinkedList,10000,1000,1,200021,1000,0,0,1,-1442757301,Theta(m)
+W3_remove_front,LinkedList,10000,1000,1,25424,1000,0,0,1,5158591,Theta(m)
+W3_insert_middle,LinkedList,10000,1000,1,11270166,5001000,0,0,1,-1442757301,Theta(m*n)
+W3_remove_middle,LinkedList,10000,1000,1,11002390,5001000,0,0,1,5068024,Theta(m*n)
+W4_insert,MinHeap,10000,10000,1,1004411,0,22918,42234,1,10000,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,10000,10000,1,1193037,0,216624,223541,1,49995000,Theta(n*log(n)) expected; O(n*log(n)) worst
+W1_access,LinkedList,10000,10000,2,110742932,50177030,0,0,1,50037577,Theta(m*n) expected
+W2_search,LinkedList,10000,1000,2,20433508,7478562,7478562,0,1,500,Theta(m*n) expected
+W3_insert_front,LinkedList,10000,1000,2,143166,1000,0,0,1,-1442757301,Theta(m)
+W3_remove_front,LinkedList,10000,1000,2,11665,1000,0,0,1,5158591,Theta(m)
+W3_insert_middle,LinkedList,10000,1000,2,10980477,5001000,0,0,1,-1442757301,Theta(m*n)
+W3_remove_middle,LinkedList,10000,1000,2,10417275,5001000,0,0,1,5068024,Theta(m*n)
+W1_access,DynamicArray,10000,10000,2,107772,10000,0,0,1,50037577,Theta(m)
+W2_search,DynamicArray,10000,1000,2,4675874,7478562,7478562,0,1,500,Theta(m*n) expected
+W3_insert_front,DynamicArray,10000,1000,2,3715597,21000000,0,10499500,1,-1442757301,Theta(m*n+m^2)
+W3_remove_front,DynamicArray,10000,1000,2,4291224,19000000,0,9499500,1,5158591,Theta(m*n) under the batch protocol
+W3_insert_middle,DynamicArray,10000,1000,2,2091825,11000000,0,5499500,1,-1442757301,Theta(m*n+m^2)
+W3_remove_middle,DynamicArray,10000,1000,2,2329994,9000000,0,4499500,1,5068024,Theta(m*n) under the batch protocol
+W4_insert,MinHeap,10000,10000,2,1041822,0,22918,42234,1,10000,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,10000,10000,2,1387658,0,216624,223541,1,49995000,Theta(n*log(n)) expected; O(n*log(n)) worst
+W1_access,DynamicArray,10000,10000,3,194467,10000,0,0,1,50037577,Theta(m)
+W2_search,DynamicArray,10000,1000,3,9575843,7478562,7478562,0,1,500,Theta(m*n) expected
+W3_insert_front,DynamicArray,10000,1000,3,7106024,21000000,0,10499500,1,-1442757301,Theta(m*n+m^2)
+W3_remove_front,DynamicArray,10000,1000,3,5945070,19000000,0,9499500,1,5158591,Theta(m*n) under the batch protocol
+W3_insert_middle,DynamicArray,10000,1000,3,3566948,11000000,0,5499500,1,-1442757301,Theta(m*n+m^2)
+W3_remove_middle,DynamicArray,10000,1000,3,2857542,9000000,0,4499500,1,5068024,Theta(m*n) under the batch protocol
+W1_access,LinkedList,10000,10000,3,107816407,50177030,0,0,1,50037577,Theta(m*n) expected
+W2_search,LinkedList,10000,1000,3,19751949,7478562,7478562,0,1,500,Theta(m*n) expected
+W3_insert_front,LinkedList,10000,1000,3,132540,1000,0,0,1,-1442757301,Theta(m)
+W3_remove_front,LinkedList,10000,1000,3,11359,1000,0,0,1,5158591,Theta(m)
+W3_insert_middle,LinkedList,10000,1000,3,10626302,5001000,0,0,1,-1442757301,Theta(m*n)
+W3_remove_middle,LinkedList,10000,1000,3,10726794,5001000,0,0,1,5068024,Theta(m*n)
+W4_insert,MinHeap,10000,10000,3,1047354,0,22918,42234,1,10000,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,10000,10000,3,1171825,0,216624,223541,1,49995000,Theta(n*log(n)) expected; O(n*log(n)) worst
+W1_access,LinkedList,10000,10000,4,110103627,50177030,0,0,1,50037577,Theta(m*n) expected
+W2_search,LinkedList,10000,1000,4,18877302,7478562,7478562,0,1,500,Theta(m*n) expected
+W3_insert_front,LinkedList,10000,1000,4,231629,1000,0,0,1,-1442757301,Theta(m)
+W3_remove_front,LinkedList,10000,1000,4,69732,1000,0,0,1,5158591,Theta(m)
+W3_insert_middle,LinkedList,10000,1000,4,10484221,5001000,0,0,1,-1442757301,Theta(m*n)
+W3_remove_middle,LinkedList,10000,1000,4,12593717,5001000,0,0,1,5068024,Theta(m*n)
+W1_access,DynamicArray,10000,10000,4,31856,10000,0,0,1,50037577,Theta(m)
+W2_search,DynamicArray,10000,1000,4,4726942,7478562,7478562,0,1,500,Theta(m*n) expected
+W3_insert_front,DynamicArray,10000,1000,4,4515899,21000000,0,10499500,1,-1442757301,Theta(m*n+m^2)
+W3_remove_front,DynamicArray,10000,1000,4,4057852,19000000,0,9499500,1,5158591,Theta(m*n) under the batch protocol
+W3_insert_middle,DynamicArray,10000,1000,4,2088759,11000000,0,5499500,1,-1442757301,Theta(m*n+m^2)
+W3_remove_middle,DynamicArray,10000,1000,4,2141113,9000000,0,4499500,1,5068024,Theta(m*n) under the batch protocol
+W4_insert,MinHeap,10000,10000,4,513829,0,22918,42234,1,10000,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,10000,10000,4,1525777,0,216624,223541,1,49995000,Theta(n*log(n)) expected; O(n*log(n)) worst
+W1_access,DynamicArray,10000,10000,5,53808,10000,0,0,1,50037577,Theta(m)
+W2_search,DynamicArray,10000,1000,5,9446395,7478562,7478562,0,1,500,Theta(m*n) expected
+W3_insert_front,DynamicArray,10000,1000,5,6688217,21000000,0,10499500,1,-1442757301,Theta(m*n+m^2)
+W3_remove_front,DynamicArray,10000,1000,5,5889575,19000000,0,9499500,1,5158591,Theta(m*n) under the batch protocol
+W3_insert_middle,DynamicArray,10000,1000,5,3586266,11000000,0,5499500,1,-1442757301,Theta(m*n+m^2)
+W3_remove_middle,DynamicArray,10000,1000,5,2784362,9000000,0,4499500,1,5068024,Theta(m*n) under the batch protocol
+W1_access,LinkedList,10000,10000,5,109810711,50177030,0,0,1,50037577,Theta(m*n) expected
+W2_search,LinkedList,10000,1000,5,19197534,7478562,7478562,0,1,500,Theta(m*n) expected
+W3_insert_front,LinkedList,10000,1000,5,54348,1000,0,0,1,-1442757301,Theta(m)
+W3_remove_front,LinkedList,10000,1000,5,58493,1000,0,0,1,5158591,Theta(m)
+W3_insert_middle,LinkedList,10000,1000,5,10301421,5001000,0,0,1,-1442757301,Theta(m*n)
+W3_remove_middle,LinkedList,10000,1000,5,10323432,5001000,0,0,1,5068024,Theta(m*n)
+W4_insert,MinHeap,10000,10000,5,432174,0,22918,42234,1,10000,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,10000,10000,5,1424103,0,216624,223541,1,49995000,Theta(n*log(n)) expected; O(n*log(n)) worst
+W1_access,DynamicArray,100000,10000,1,111529,10000,0,0,1,489787872,Theta(m)
+W2_search,DynamicArray,100000,1000,1,49730357,74864907,74864907,0,1,500,Theta(m*n) expected
+W3_insert_front,DynamicArray,100000,1000,1,44173395,201000000,0,100499500,1,1530055032,Theta(m*n+m^2)
+W3_remove_front,DynamicArray,100000,1000,1,68658191,199000000,0,99499500,1,50508168,Theta(m*n) under the batch protocol
+W3_insert_middle,DynamicArray,100000,1000,1,25559173,101000000,0,50499500,1,1530055032,Theta(m*n+m^2)
+W3_remove_middle,DynamicArray,100000,1000,1,35894342,99000000,0,49499500,1,49487957,Theta(m*n) under the batch protocol
+W1_access,LinkedList,100000,10000,1,1141129055,505044105,0,0,1,489787872,Theta(m*n) expected
+W2_search,LinkedList,100000,1000,1,210154818,74864907,74864907,0,1,500,Theta(m*n) expected
+W3_insert_front,LinkedList,100000,1000,1,94130,1000,0,0,1,1530055032,Theta(m)
+W3_remove_front,LinkedList,100000,1000,1,6665,1000,0,0,1,50508168,Theta(m)
+W3_insert_middle,LinkedList,100000,1000,1,106321833,50001000,0,0,1,1530055032,Theta(m*n)
+W3_remove_middle,LinkedList,100000,1000,1,104352147,50001000,0,0,1,49487957,Theta(m*n)
+W4_insert,MinHeap,100000,100000,1,6090115,0,227941,386962,1,100000,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,100000,100000,1,14112657,0,2831730,2901807,1,4999950000,Theta(n*log(n)) expected; O(n*log(n)) worst
+W1_access,LinkedList,100000,10000,2,1174127104,505044105,0,0,1,489787872,Theta(m*n) expected
+W2_search,LinkedList,100000,1000,2,231904261,74864907,74864907,0,1,500,Theta(m*n) expected
+W3_insert_front,LinkedList,100000,1000,2,96852,1000,0,0,1,1530055032,Theta(m)
+W3_remove_front,LinkedList,100000,1000,2,6901,1000,0,0,1,50508168,Theta(m)
+W3_insert_middle,LinkedList,100000,1000,2,119604144,50001000,0,0,1,1530055032,Theta(m*n)
+W3_remove_middle,LinkedList,100000,1000,2,120984095,50001000,0,0,1,49487957,Theta(m*n)
+W1_access,DynamicArray,100000,10000,2,41016,10000,0,0,1,489787872,Theta(m)
+W2_search,DynamicArray,100000,1000,2,46828890,74864907,74864907,0,1,500,Theta(m*n) expected
+W3_insert_front,DynamicArray,100000,1000,2,36014374,201000000,0,100499500,1,1530055032,Theta(m*n+m^2)
+W3_remove_front,DynamicArray,100000,1000,2,40838311,199000000,0,99499500,1,50508168,Theta(m*n) under the batch protocol
+W3_insert_middle,DynamicArray,100000,1000,2,18017687,101000000,0,50499500,1,1530055032,Theta(m*n+m^2)
+W3_remove_middle,DynamicArray,100000,1000,2,21405572,99000000,0,49499500,1,49487957,Theta(m*n) under the batch protocol
+W4_insert,MinHeap,100000,100000,2,2652393,0,227941,386962,1,100000,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,100000,100000,2,13778289,0,2831730,2901807,1,4999950000,Theta(n*log(n)) expected; O(n*log(n)) worst
+W1_access,DynamicArray,100000,10000,3,35753,10000,0,0,1,489787872,Theta(m)
+W2_search,DynamicArray,100000,1000,3,48899070,74864907,74864907,0,1,500,Theta(m*n) expected
+W3_insert_front,DynamicArray,100000,1000,3,35090241,201000000,0,100499500,1,1530055032,Theta(m*n+m^2)
+W3_remove_front,DynamicArray,100000,1000,3,41324350,199000000,0,99499500,1,50508168,Theta(m*n) under the batch protocol
+W3_insert_middle,DynamicArray,100000,1000,3,18366691,101000000,0,50499500,1,1530055032,Theta(m*n+m^2)
+W3_remove_middle,DynamicArray,100000,1000,3,20364196,99000000,0,49499500,1,49487957,Theta(m*n) under the batch protocol
+W1_access,LinkedList,100000,10000,3,1101389561,505044105,0,0,1,489787872,Theta(m*n) expected
+W2_search,LinkedList,100000,1000,3,194122919,74864907,74864907,0,1,500,Theta(m*n) expected
+W3_insert_front,LinkedList,100000,1000,3,26899,1000,0,0,1,1530055032,Theta(m)
+W3_remove_front,LinkedList,100000,1000,3,7255,1000,0,0,1,50508168,Theta(m)
+W3_insert_middle,LinkedList,100000,1000,3,104350164,50001000,0,0,1,1530055032,Theta(m*n)
+W3_remove_middle,LinkedList,100000,1000,3,104181124,50001000,0,0,1,49487957,Theta(m*n)
+W4_insert,MinHeap,100000,100000,3,7022950,0,227941,386962,1,100000,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,100000,100000,3,16707569,0,2831730,2901807,1,4999950000,Theta(n*log(n)) expected; O(n*log(n)) worst
+W1_access,LinkedList,100000,10000,4,1101629688,505044105,0,0,1,489787872,Theta(m*n) expected
+W2_search,LinkedList,100000,1000,4,196602961,74864907,74864907,0,1,500,Theta(m*n) expected
+W3_insert_front,LinkedList,100000,1000,4,16599,1000,0,0,1,1530055032,Theta(m)
+W3_remove_front,LinkedList,100000,1000,4,6744,1000,0,0,1,50508168,Theta(m)
+W3_insert_middle,LinkedList,100000,1000,4,103575491,50001000,0,0,1,1530055032,Theta(m*n)
+W3_remove_middle,LinkedList,100000,1000,4,104032376,50001000,0,0,1,49487957,Theta(m*n)
+W1_access,DynamicArray,100000,10000,4,35483,10000,0,0,1,489787872,Theta(m)
+W2_search,DynamicArray,100000,1000,4,46378583,74864907,74864907,0,1,500,Theta(m*n) expected
+W3_insert_front,DynamicArray,100000,1000,4,35122222,201000000,0,100499500,1,1530055032,Theta(m*n+m^2)
+W3_remove_front,DynamicArray,100000,1000,4,40772569,199000000,0,99499500,1,50508168,Theta(m*n) under the batch protocol
+W3_insert_middle,DynamicArray,100000,1000,4,17573299,101000000,0,50499500,1,1530055032,Theta(m*n+m^2)
+W3_remove_middle,DynamicArray,100000,1000,4,20193939,99000000,0,49499500,1,49487957,Theta(m*n) under the batch protocol
+W4_insert,MinHeap,100000,100000,4,4448956,0,227941,386962,1,100000,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,100000,100000,4,13537139,0,2831730,2901807,1,4999950000,Theta(n*log(n)) expected; O(n*log(n)) worst
+W1_access,DynamicArray,100000,10000,5,45158,10000,0,0,1,489787872,Theta(m)
+W2_search,DynamicArray,100000,1000,5,49787990,74864907,74864907,0,1,500,Theta(m*n) expected
+W3_insert_front,DynamicArray,100000,1000,5,35201334,201000000,0,100499500,1,1530055032,Theta(m*n+m^2)
+W3_remove_front,DynamicArray,100000,1000,5,40824099,199000000,0,99499500,1,50508168,Theta(m*n) under the batch protocol
+W3_insert_middle,DynamicArray,100000,1000,5,18069056,101000000,0,50499500,1,1530055032,Theta(m*n+m^2)
+W3_remove_middle,DynamicArray,100000,1000,5,20870847,99000000,0,49499500,1,49487957,Theta(m*n) under the batch protocol
+W1_access,LinkedList,100000,10000,5,1167396909,505044105,0,0,1,489787872,Theta(m*n) expected
+W2_search,LinkedList,100000,1000,5,194187340,74864907,74864907,0,1,500,Theta(m*n) expected
+W3_insert_front,LinkedList,100000,1000,5,79544,1000,0,0,1,1530055032,Theta(m)
+W3_remove_front,LinkedList,100000,1000,5,7713,1000,0,0,1,50508168,Theta(m)
+W3_insert_middle,LinkedList,100000,1000,5,104508712,50001000,0,0,1,1530055032,Theta(m*n)
+W3_remove_middle,LinkedList,100000,1000,5,104787738,50001000,0,0,1,49487957,Theta(m*n)
+W4_insert,MinHeap,100000,100000,5,5970034,0,227941,386962,1,100000,Theta(n) expected; O(n*log(n)) worst
+W4_extract,MinHeap,100000,100000,5,13574986,0,2831730,2901807,1,4999950000,Theta(n*log(n)) expected; O(n*log(n)) worst

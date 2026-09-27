@@ -1,24 +1,17 @@
 # Submission checklist
 
-| Rubric item | Points | Evidence |
-| --- | ---: | --- |
-| Data structures | 20 | All 13 required operations in the three custom structures |
-| Asymptotic analysis | 15 | README Section 2: O, Omega, Theta, cases, space, and growth |
-| Correctness and invariants | 15 | README Section 3: two complete loop-invariant proofs |
-| Workloads and design | 10 | All required n/m values; four workloads; documented removal extension |
-| Benchmarking and metrics | 15 | nanoTime, Random(42), five runs, setup excluded, logical counters |
-| Results and plots | 10 | 280 raw rows, 56 means, eight plots, workload interpretation |
-| Performance/design analysis | 5 | All nine discussion questions and recommendations |
-| Report and README | 5 | Matching English README and 19-page Word report |
-| GitHub/code quality | 5 | Compiling source and actual local staged history; remote publication pending |
+- All 13 required methods are present in src/.
+- Run check.bat (Windows) or sh check.sh (macOS/Linux); all tests must pass.
+- The report and README contain best, average, worst, and extra-space analysis.
+- Two loop proofs cover array insertion and list search.
+- All four workloads use the required sizes and five repetitions.
+- Tables contain mean times, required counts, and theoretical bounds.
+- Eight graphs are included. Screenshots are not separately required.
+- Discussion answers the nine assignment questions.
+- The report explains the small-n removal interpretation; get instructor approval.
+- Review the work, fill in your name and group, and follow course assistance rules.
+- Publish the repository and submit its link; this has not been done by the package.
+- Preserve honest commit history. Do not represent assistant-prepared work as earlier personal commits.
+- Submit the individual report as directed by the course.
 
-Before submitting, review the implementation, reproduce the tests, confirm the
-Workload 3 interpretation with the instructor, publish the repository under an
-authorized account, and check instructor access. The assignment asks for the
-GitHub repository URL; the ZIP is a transfer package, not a replacement for that URL.
-
-The local commits were made during preparation of this package. They must not be
-presented as older student work. A score of 100 is not promised by this checklist.
-
-The separate `DEFENSE_GUIDE.md` explains the source, worked examples, common
-questions, and the important experimental limitations in English.
+See START_HERE.md for a safe first run and docs/PUBLISHING.md for publication.

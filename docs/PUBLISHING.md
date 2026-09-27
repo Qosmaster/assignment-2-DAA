@@ -19,7 +19,8 @@ git status
 git log --oneline
 ```
 
-Run `sh run.sh` on macOS/Linux or `run.bat` on Windows. A JDK is required.
+Run `sh check.sh` on macOS/Linux or `check.bat` on Windows.
+This checks the code without replacing saved measurements. A JDK is required.
 Java tests and benchmarks do not require Python.
 
 ## 2. Set the author for your future commits
@@ -64,4 +65,4 @@ Submit the repository's URL and the individual report wherever the course requir
 
 Ask the instructor to confirm the valid-batch resolution for Workload 3 before
 claiming literal compliance with its impossible small-n removal instruction.
-The details are in README Section 4.3. No score or approval is guaranteed here.
+The details are in README Section 4.2. No score or approval is guaranteed here.

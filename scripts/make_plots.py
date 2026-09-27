@@ -14,7 +14,7 @@ with (ROOT / "results/tables/summary.csv").open() as source:
 
 def plot_series(filename, title, ylabel, specifications, error_bars=False):
     """Each output file has exactly one chart, with automatic default colors."""
-    fig, ax = plt.subplots(figsize=(8.4, 4.8))
+    fig, ax = plt.subplots(figsize=(8.4, 3.8))
     for workload, structure, metric, label in specifications:
         selected = sorted((r for r in ROWS if r["workload"] == workload
                            and r["structure"] == structure), key=lambda r: int(r["n"]))

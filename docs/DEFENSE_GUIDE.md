@@ -1,180 +1,192 @@
-# Defense guide
+# Explaining the project
 
-This guide explains the implementation. Use it to understand the project rather
-than memorizing claims about work you have not reviewed.
+## A short introduction
 
-## A short project explanation
+"This project compares three structures: a Dynamic Array, a Linked List, and a
+Min-Heap. The same operations can have different costs because the values are
+stored differently. The project uses Java loops and classes, tests the answers,
+and records five timings for each experiment."
 
-The project compares a Dynamic Array, a singly Linked List, and a binary Min-Heap.
-The structures store integers and are implemented without standard collections
-as their internal storage. I need to explain both correctness and performance:
-the same abstract operation can have different costs in different representations.
-The benchmark separates input generation from operation timing and preserves the
-same seed, workload size, and query sequence across compared structures.
+## 1. Dynamic Array
 
-## What each source file does
+`data` stores the values. `size` is the number of values currently in use.
+`data.length` is the capacity. For example, size can be 3 while capacity is 16.
 
-`DynamicArray.java` stores values in an `int[]`. `size` is the number of active
-values, while `data.length` is allocated capacity. The capacity begins at 16 and
-doubles only when full. The unused part of the array is not part of the sequence.
+`get(index)` checks the index and returns `data[index]` directly.
 
-`LinkedList.java` stores a chain of nodes. Each node has a value and a `next`
-reference. `head` points to the first node, `tail` to the last, and `size` counts
-nodes. Keeping `tail` makes append constant time. Numerical indexed access still
-starts from `head` and follows links.
+`add(value)` calls `add(size, value)`, which means insertion at the end.
 
-`MinHeap.java` stores a complete binary tree in an array. A node at index `i` has
-parent `(i-1)/2`, left child `2*i+1`, and right child `2*i+2`. The parent key is no
-larger than either child key. The entire array is not globally sorted.
+`add(index, value)` checks the index, makes more space if needed, moves the later
+values one position right, and places the new value at the chosen index.
+The loop starts at the end. Starting from the front would overwrite values
+before copying them.
 
-`IntList.java` defines the operations that both list implementations share. It
-lets the benchmark use the same operation loops for both types. It is not a
-standard library collection.
+Example: `[10, 30]`, followed by `add(1, 20)`, becomes `[10, 20, 30]`.
 
-`Metrics.java` contains three `long` counters: accesses, comparisons, and movements.
-A long is useful because workloads can count hundreds of millions of operations.
-The metrics are logical work counts, not measurements of CPU instructions.
+`remove(index)` saves the removed value, moves later values one place left,
+decreases size, and returns the saved value.
 
-`Tests.java` checks known cases and compares random operations with standard
-collections. The reference collections are allowed for validation, not used to
-implement the required structures. A failed check throws `AssertionError`.
+`contains(value)` checks each value until it finds a match or reaches size.
 
-`Benchmark.java` generates inputs, runs the fixed workloads, times the operation
-loops, validates outputs, and writes raw and summary CSV files. The nested Inputs
-and Result classes are just small containers for the benchmark data.
+`ensureCapacity()` creates an array twice as long and copies the old values.
+This makes a single full-array append slow, but many appends are efficient overall.
 
-`Demo.java` is an optional short interactive-defense demonstration. It is not
-part of the measured workloads.
+## 2. Linked List
 
-## Explain an array insertion step by step
+A `Node` holds an integer and `next`, a link to another node.
+`head` is the first node; `tail` is the last. The last node has `next == null`.
 
-Start with `[10, 20, 30]` and call `add(1, 99)`.
+`add(value)` makes a node and attaches it after tail. It does not scan the list.
 
-The index is valid, and there is room. With old size 3, the loop first writes
-`data[3] = data[2]`, moving 30 right. It then writes `data[2] = data[1]`, moving 20
-right. The loop stops at index 1. Finally, it writes 99 at index 1 and increases
-size to 4. The result is `[10, 99, 20, 30]`.
+`add(0, value)` puts the new node before head. For a middle index, the code first
+finds the previous node and then changes the two links.
 
-The loop goes backward so it does not overwrite a value that has not yet been
-copied. The invariant describes an intact prefix and an already-shifted suffix.
-Initialization, maintenance, termination, and the final insertion write together
-prove the resulting order. The complete formal proof is in README Section 3.1.
+`remove(0)` moves head to `head.next`. Other removals first find the previous
+node and make it skip the removed node. Removing the final node resets tail.
 
-Removing an array element does the reverse kind of repair: read the removed value,
-shift its suffix left, reduce size, and return the saved value. Removing the last
-value needs no shift. Removing the first value usually shifts almost the whole array.
+`nodeAt(index)` starts at head and follows next links until it reaches the index.
+`get(index)` returns that node's value. The list cannot jump directly to an index.
 
-## Explain linked-list mutations
+`contains(value)` checks each node's value until a match or null.
 
-A new first node points to the old head, and then `head` changes to that new node.
-No existing value needs to move. Removing the first node changes head to its next
-node. If this makes the list empty, tail must also become null.
+## 3. Min-Heap
 
-For a middle insertion, first find the predecessor. Make the new node point to
-`previous.next`, then set `previous.next` to the new node. Reversing those two
-assignments carelessly could lose the original suffix or make a wrong link.
+The heap is stored in an array. Every parent value is <= its children.
+This is enough to keep the minimum at position 0; the whole array is not sorted.
 
-For middle removal, find the predecessor and bypass its next node. Tail must be
-updated when the removed node was last. The link change is constant time, but
-finding the predecessor by index is linear. This is why middle indexed insertion
-is not O(1) in this API.
+For a node at index i:
 
-## Explain heap extraction with an example
-
-Take the valid heap array `[1, 3, 2, 7, 5, 4]`. Save the root, 1. Remove the last
-position and put its value, 4, at the root: `[4, 3, 2, 7, 5]`.
-
-The smaller root child is 2, so swap 4 with 2. The array becomes
-`[2, 3, 4, 7, 5]`. The current position has no children, so the loop stops.
-Return the saved minimum, 1. The array is a valid heap even though 7 appears
-before 5: heap order is parent-child order, not complete sorted order.
-
-The invariant says that only edges from the current replacement position may be
-unordered. Child subtrees remain heaps, and earlier ancestors are no larger than
-keys in the current subtree. Moving the smaller child upward fixes one level and
-moves the possible problem downward. The remaining height decreases, so the loop
-must terminate. See the full proof in README Section 3.2.
-
-## Questions about complexity
-
-**What do O, Omega, and Theta mean?** O is an upper bound, Omega is a lower bound,
-and Theta is a matching pair of bounds. They are not synonyms for worst case,
-best case, and average case. A best, average, or worst-case function can each
-have its own O, Omega, and Theta bounds.
-
-**Why is get constant time only in the array?** The array directly addresses the
-requested slot. A singly linked list cannot jump to node i; it visits i+1 nodes.
-
-**Is array append always constant time?** No. A full array must allocate a larger
-array and copy existing values. That particular append is linear. Across many
-appends, geometric doubling gives constant amortized cost per append.
-
-**Is average case the same as amortized cost?** No. Average case needs a probability
-model for the inputs. Amortized cost spreads the cost of an entire operation
-sequence and need not assume random data.
-
-**Is heap insertion O(log n)?** The sift-up part has that worst-case bound. This
-implementation can also resize, so one growing call can be linear. Over a
-sequence, growth is amortized. Under the random-permutation construction used
-here, expected sift work per insertion is constant, but descending priorities can
-force long sift-up paths. Do not confuse the workload expectation with a worst case.
-
-**Why does search have the same count but different times?** Both structures scan
-the same values and stop at the same point. Their memory organization and access
-mechanisms differ. This experiment does not separately measure cache misses, so
-cache explanations should be presented as plausible contributors, not proven causes.
-
-## Questions about the benchmark
-
-**What are n and m?** n is the initial list size, while m is the number of operations.
-Random access uses m=10,000, search uses m=1,000, and each mutation experiment uses
-m=1,000. The priority workload starts empty and has n insertions and n extractions.
-
-**Why use the same seed?** It makes input and query generation reproducible.
-Both list structures and all five repetitions receive the same data. The seed
-does not make timing identical because the runtime environment still varies.
-
-**Why shuffle distinct integers?** The random relative order is controlled and
-well defined. Exactly half the search values can be sampled from the stored data,
-while negative queries are definitely absent. Duplicate support is tested separately.
-
-**What is timed?** Only the operation loops, including the counters and any growth
-or node allocation caused by those operations. Input preparation, setup, printing,
-restoration, and output validation are outside the measured intervals.
-
-**Why five repeats?** The brief requires five. The project reports their arithmetic
-mean and also preserves the raw observations, minimum, maximum, and sample standard
-deviation. No slow result is discarded merely because it is inconvenient.
-
-**Why do some constant-work timings decrease at larger n?** JIT compilation,
-scheduling, and other uncontrolled runtime effects can matter more than the useful
-work in short loops. The exact cause is not isolated here. Counts provide stronger
-evidence of the algorithmic work than a single very short time.
-
-**How can there be 1,000 removals when n is 100?** The literal instruction is
-impossible. The documented extension restores the original structure outside the
-timer whenever the fixed index becomes invalid. It sums batches until exactly
-1,000 valid removals have happened. The middle index stays fixed at original n/2.
-This interpretation must be disclosed and confirmed with the instructor.
-
-**What are the main measured results?** Array access uses exactly 10,000 accesses
-at every n. List access grows to 505,044,105 node visits at n=100,000. Search has
-identical comparison counts for both structures. List front mutation needs only
-1,000 node touches, while indexed middle mutations need repeated traversal.
-Heap insertion comparisons stay near a constant per inserted key, while extraction
-comparisons per key increase with heap height.
-
-## A short demonstration sequence
-
-Compile with the project run commands, then run:
-
-```sh
-java -cp out Demo
-java -cp out Tests
+```
+parent = (i - 1) / 2
+left child = 2 * i + 1
+right child = 2 * i + 2
 ```
 
-Open the source operation you are explaining, connect each loop or pointer update
-to the example, and then show the corresponding proof and result table. Use the
-raw CSV and environment file when asked where the numbers came from. Describe
-local preparation commits and your own later edits honestly; no student history
-or hosted GitHub publication was invented by the package.
+`insert(value)` puts the value at the end. While it is smaller than its parent,
+the code swaps it upward. This is often called sift-up.
+
+`peekMin()` returns the root without removing it.
+
+`extractMin()` saves the root, moves the last value to the root, and moves this
+replacement down. It swaps with the smaller child. It stops when the value is
+<= its children or has no children. This is called sift-down.
+
+The tests check that the parent-child rule still holds after operations and that
+repeated extraction gives values in non-decreasing order.
+
+## 4. Basic Java used here
+
+`class` groups data and methods. `new` creates an object.
+`private` keeps a field or helper method inside its class. `public` makes it
+available from other classes. `static` means a method or field belongs to the
+class rather than one individual object. `final` means a variable cannot be
+assigned a new value after initialization.
+
+`IntList` is an interface: a shared set of methods for the two list classes.
+`implements IntList` says the class provides those methods. It avoids copying
+all benchmark code for each structure.
+
+`for` repeats a known set of steps. `while` repeats while a condition is true.
+`if/else` chooses a path. `return` sends a value back and ends the method.
+`break` exits a loop. `null` means there is no object at that link.
+
+`for (int value : values)` means "do this once for each value in the array."
+
+`List<Integer>` in the tests is a standard Java collection of integer values.
+It provides reference answers; it is not used inside the custom list structures.
+`instanceof` checks an object's class. The cast in the tests lets the test call
+the linked-list-only validation method.
+
+`throw` reports an error. `try/catch` lets tests check that an invalid operation
+really reports one. `try (...)` in file writing closes the file automatically.
+
+`Metrics` uses `long` because large counts can exceed an int's range.
+`volatile sink` keeps a result after timing to discourage Java from discarding
+unused work. You do not need threads to run this project.
+
+## 5. Benchmark.java, step by step
+
+`Inputs` holds the prepared values, random indices, queries, and new values.
+`Result` holds one experiment's time and counts. They are small data holders.
+
+The main method first warms up Java twice. It then loops through the four sizes
+and five repetitions. Each round runs the required workloads for both list types
+and the heap. The code saves all results after timing is finished.
+
+Each list experiment prepares the structure and resets its counters. Then it
+records a start time, runs the operation loop, and records elapsed time.
+Correctness checks and CSV writing happen after that measured section.
+
+`saveResults` writes all 280 runs to raw.csv. It groups matching experiments and
+computes their average. Minimum, maximum, and standard deviation are extra
+information about timing variation. The rubric needs the mean, not identical
+times across runs.
+
+In search, exactly half the queries match. This makes the experiment easy to
+compare as n changes. Both structures receive the same data and queries.
+
+In the heap workload, the output array is allocated before timing. The extraction
+loop writes to it inside timing. Sorting the reference copy and checking the
+answer happen after timing.
+
+## 6. The removal problem
+
+The brief asks for 1,000 removals from only 100 original values.
+That cannot work in one batch. With a fixed middle index, the index can become
+invalid even before the structure is empty.
+
+The code removes all valid values at the fixed index, restores the original
+structure outside timing, and continues. It still performs 1,000 successful
+removals. It never silently changes the index to `size / 2`.
+This interpretation must be approved by the instructor.
+
+## 7. The two loop proofs
+
+For array insertion: the processed right part has moved right once; the unread
+left part is unchanged. Copying from right to left keeps this true. At the end,
+the gap is at the insertion index, so the new value can be written there.
+
+For list search: every node before current has been checked and did not match.
+Each unsuccessful step adds one more non-match. A match proves true; reaching
+null proves false. The report gives initialization, maintenance, termination,
+and the final correctness argument for both proofs.
+
+## 8. Questions to practice
+
+**Why is array get constant time?**
+It reads a position directly; it does not scan earlier values.
+
+**Why can list insertion be linear?**
+The link change is cheap, but an indexed insertion may need a long walk first.
+
+**What does amortized mean?**
+Cost per operation across a whole sequence. A rare expensive array copy is shared
+over many cheap appends. It does not mean every single append is constant time.
+
+**Is heap insert always logarithmic?**
+The upward loop has a logarithmic worst case, but array growth can make a single
+call linear. Random-order construction has a smaller expected sequence cost.
+The report separates these cases.
+
+**Why are the two searches not equally fast?**
+They can do the same number of comparisons with different memory-access costs.
+The linked list follows links; the array reads positions next to one another.
+
+**What are n and m?**
+n is the initial list size. m is the number of operations. The heap workload
+starts empty and uses n insertions followed by n extractions.
+
+**Why not time data generation?**
+It would add work that is not part of the requested structure operation.
+
+**Do the timings prove the complexity?**
+No. The loop analysis gives the bounds. The counts and timings provide evidence
+for these inputs and show practical differences.
+
+**Which structure should be chosen?**
+It depends on the main operations: indexed reads favor the array, head changes
+favor the list, and next-minimum processing favors the heap.
+
+**Were these measurements made on the student's computer?**
+No. The supplied run was made in the shared execution container described in
+results/environment.txt. Local runs will give different times.
