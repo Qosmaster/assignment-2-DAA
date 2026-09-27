@@ -1,19 +1,5 @@
 # Assignment 2: Java Data Structures
 
-## Run the project
-
-Install a JDK (tested with Java 21). Open a terminal in this folder.
-
-```text
-javac -d out src/*.java
-java -cp out Tests
-java -cp out Benchmark
-```
-
-On Windows Command Prompt, use `javac -d out src\*.java` for the first line. Tests checks correctness. Benchmark repeats the experiments and replaces `results/tables/raw.csv` and `summary.csv`; keep a copy if you need the original numbers and plots. Java does not require Python or extra libraries.
-
-## Assignment 2
-
 Algorithmic Analysis, Correctness and Performance Trade-offs
 
 Student: Adiyat Smagul    Group: SE-2522
