@@ -1,5 +1,6 @@
 /** A singly linked integer list with head and tail references. */
 public class LinkedList implements IntList {
+    // One node holds a number and a link to the next node.
     private static class Node {
         int value;
         Node next;
@@ -48,6 +49,7 @@ public class LinkedList implements IntList {
             head = node;
         } else {
             Node previous = nodeAt(index - 1);
+            // Put the new node between previous and the following node.
             node.next = previous.next;
             previous.next = node;
         }
@@ -82,6 +84,7 @@ public class LinkedList implements IntList {
         return nodeAt(index).value;
     }
 
+    // Check one node at a time. Stop at a match or at the end of the list.
     public boolean contains(int value) {
         Node current = head;
         while (current != null) {
@@ -95,6 +98,7 @@ public class LinkedList implements IntList {
         return false;
     }
 
+    // Start at the first node and follow next links until the requested index.
     private Node nodeAt(int index) {
         Node current = head;
         metrics.accesses++;
@@ -127,7 +131,12 @@ public class LinkedList implements IntList {
             current = current.next;
             count++;
         }
-        return count == size && current == null && last == tail
-                && ((size == 0) == (head == null && tail == null));
+        if (count != size || current != null || last != tail) {
+            return false;
+        }
+        if (size == 0) {
+            return head == null && tail == null;
+        }
+        return head != null && tail != null;
     }
 }

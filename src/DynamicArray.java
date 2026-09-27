@@ -12,6 +12,7 @@ public class DynamicArray implements IntList {
         return metrics;
     }
 
+    // Adding at index size puts the value at the end.
     public void add(int value) {
         add(size, value);
     }
@@ -19,7 +20,7 @@ public class DynamicArray implements IntList {
     public void add(int index, int value) {
         checkPosition(index);
         ensureCapacity();
-        // Copy backwards so an unread element is never overwritten.
+        // Move values right, starting at the end, to make room at index.
         for (int i = size; i > index; i--) {
             data[i] = data[i - 1];
             metrics.accesses += 2;
@@ -34,7 +35,7 @@ public class DynamicArray implements IntList {
         checkIndex(index);
         int removed = data[index];
         metrics.accesses++;
-        // Close the gap by shifting the suffix one position to the left.
+        // Move the following values left to fill the empty position.
         for (int i = index; i < size - 1; i++) {
             data[i] = data[i + 1];
             metrics.accesses += 2;
@@ -61,6 +62,7 @@ public class DynamicArray implements IntList {
         return false;
     }
 
+    // If the array is full, create a larger array and copy the old values.
     private void ensureCapacity() {
         if (size < data.length) {
             return;

@@ -18,7 +18,10 @@ public class Tests {
     }
 
     private static IntList newList(boolean linked) {
-        return linked ? new LinkedList() : new DynamicArray();
+        if (linked) {
+            return new LinkedList();
+        }
+        return new DynamicArray();
     }
 
     private static void check(boolean condition, String message) {
@@ -57,10 +60,13 @@ public class Tests {
     }
 
     private static void testList(boolean linked) {
-        String name = linked ? "LinkedList" : "DynamicArray";
+        String name = "DynamicArray";
+        List<Integer> expected = new ArrayList<Integer>();
+        if (linked) {
+            name = "LinkedList";
+            expected = new java.util.LinkedList<Integer>();
+        }
         IntList actual = newList(linked);
-        List<Integer> expected = linked ? new java.util.LinkedList<Integer>()
-                : new ArrayList<Integer>();
 
         check(actual.size() == 0, "New list must be empty");
         check(!actual.contains(8), "Empty list contains a value");
@@ -149,23 +155,31 @@ public class Tests {
     private static void testListMetrics() {
         for (int type = 0; type < 2; type++) {
             IntList list = newList(type == 1);
+            int getAccesses = 1;
+            int movements = 3;
+            int changeAccesses = 7;
+            if (type == 1) {
+                getAccesses = 3;
+                movements = 0;
+                changeAccesses = 1;
+            }
             list.add(10);
             list.add(20);
             list.add(30);
             list.metrics().reset();
             check(list.get(2) == 30, "Metric get value failed");
-            check(list.metrics().accesses == (type == 0 ? 1 : 3), "Get access count differs");
+            check(list.metrics().accesses == getAccesses, "Get access count differs");
             list.metrics().reset();
             check(!list.contains(99) && list.metrics().comparisons == 3,
                     "Missing search count differs");
             list.metrics().reset();
             list.add(0, 5);
-            check(list.metrics().movements == (type == 0 ? 3 : 0), "Insertion movements differ");
-            check(list.metrics().accesses == (type == 0 ? 7 : 1), "Insertion accesses differ");
+            check(list.metrics().movements == movements, "Insertion movements differ");
+            check(list.metrics().accesses == changeAccesses, "Insertion accesses differ");
             list.metrics().reset();
             check(list.remove(0) == 5, "Metric removal failed");
-            check(list.metrics().movements == (type == 0 ? 3 : 0), "Removal movements differ");
-            check(list.metrics().accesses == (type == 0 ? 7 : 1), "Removal accesses differ");
+            check(list.metrics().movements == movements, "Removal movements differ");
+            check(list.metrics().accesses == changeAccesses, "Removal accesses differ");
         }
         DynamicArray array = new DynamicArray();
         for (int i = 0; i < 16; i++) {
@@ -235,7 +249,11 @@ public class Tests {
         // Ascending and descending inputs test immediate stops and long sift paths.
         for (int direction = 0; direction < 2; direction++) {
             for (int i = 0; i < 1024; i++) {
-                heap.insert(direction == 0 ? i : 1023 - i);
+                int value = i;
+                if (direction == 1) {
+                    value = 1023 - i;
+                }
+                heap.insert(value);
                 check(heap.isValidHeap(), "Ordered-input insertion failed");
             }
             for (int i = 0; i < 1024; i++) {

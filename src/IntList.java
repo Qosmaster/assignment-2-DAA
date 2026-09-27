@@ -1,4 +1,5 @@
-/** A common API lets the benchmark run the same workload on both lists. */
+// Both list classes provide these methods.
+// This lets the same test and benchmark code work with either list.
 public interface IntList {
     void add(int value);
     void add(int index, int value);

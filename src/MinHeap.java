@@ -19,9 +19,9 @@ public class MinHeap {
         int index = size;
         data[index] = value;
         size++;
-        // Only the path from the new leaf to the root can violate heap order.
+        // Move the new value up while it is smaller than its parent.
         while (index > 0) {
-            int parent = (index - 1) / 2;
+            int parent = (index - 1) / 2; // Parent position in the array.
             metrics.comparisons++;
             if (data[parent] <= data[index]) {
                 break;
@@ -46,14 +46,14 @@ public class MinHeap {
         data[0] = data[size];
         metrics.movements++;
         int index = 0;
-        // Move the replacement down until it is no larger than either child.
+        // Move the replacement down until it is <= both children.
         while (true) {
             int left = 2 * index + 1;
             if (left >= size) {
                 break;
             }
             int right = left + 1;
-            int smaller = left;
+            int smaller = left; // Choose the child with the smaller value.
             if (right < size) {
                 metrics.comparisons++;
                 if (data[right] < data[left]) {

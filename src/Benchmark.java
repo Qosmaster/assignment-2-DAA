@@ -19,9 +19,11 @@ public class Benchmark {
     private static final int SEARCH_OPERATIONS = 1000;
     private static final int CHANGE_OPERATIONS = 1000;
     private static final int SEED = 42;
+    // Keep each answer after timing so Java cannot ignore the result.
     private static volatile long sink;
 
     /** All input is generated before any measured workload starts. */
+    // This class keeps the prepared numbers for one input size.
     private static class Inputs {
         int[] data;
         int[] indices = new int[ACCESS_OPERATIONS];
@@ -46,8 +48,11 @@ public class Benchmark {
             }
             // Exactly half the searches succeed; negative values are absent.
             for (int i = 0; i < queries.length; i++) {
-                queries[i] = i % 2 == 0 ? data[random.nextInt(n)]
-                        : -1 - random.nextInt(n);
+                if (i % 2 == 0) {
+                    queries[i] = data[random.nextInt(n)];
+                } else {
+                    queries[i] = -1 - random.nextInt(n);
+                }
             }
             for (int i = 0; i < additions.length; i++) {
                 additions[i] = random.nextInt();
@@ -55,6 +60,7 @@ public class Benchmark {
         }
     }
 
+    // This class stores the time and counts from one experiment.
     private static class Result {
         String workload;
         String structure;
@@ -93,11 +99,19 @@ public class Benchmark {
     }
 
     private static String name(boolean linked) {
-        return linked ? "LinkedList" : "DynamicArray";
+        if (linked) {
+            return "LinkedList";
+        }
+        return "DynamicArray";
     }
 
     private static IntList preparedList(boolean linked, int[] values) {
-        IntList list = linked ? new LinkedList() : new DynamicArray();
+        IntList list;
+        if (linked) {
+            list = new LinkedList();
+        } else {
+            list = new DynamicArray();
+        }
         for (int value : values) {
             list.add(value);
         }
@@ -117,12 +131,16 @@ public class Benchmark {
             sum += list.get(index);
         }
         long elapsed = System.nanoTime() - start;
+        String theory = "Theta(m)";
+        if (linked) {
+            theory = "Theta(m*n) expected";
+        }
         Result result = new Result("W1_access", name(linked), inputs.data.length,
-                ACCESS_OPERATIONS, repeat, linked ? "Theta(m*n) expected" : "Theta(m)");
+                ACCESS_OPERATIONS, repeat, theory);
         result.nanoseconds = elapsed;
         result.addMetrics(list.metrics());
         result.checksum = sum;
-        sink ^= sum;
+        sink = sum;
         require(sum == expected, "Random access checksum failed");
         return result;
     }
@@ -142,24 +160,36 @@ public class Benchmark {
         result.nanoseconds = elapsed;
         result.addMetrics(list.metrics());
         result.checksum = found;
-        sink ^= found;
+        sink = found;
         require(found == SEARCH_OPERATIONS / 2, "Search hit ratio failed");
         return result;
     }
 
     private static Result insert(boolean linked, Inputs inputs, int repeat, boolean middle) {
         int n = inputs.data.length;
-        int index = middle ? n / 2 : 0;
+        int index = 0;
+        if (middle) {
+            index = n / 2;
+        }
         IntList list = preparedList(linked, inputs.data);
         long start = System.nanoTime();
         for (int value : inputs.additions) {
             list.add(index, value);
         }
         long elapsed = System.nanoTime() - start;
-        String theory = linked ? (middle ? "Theta(m*n)" : "Theta(m)")
-                : "Theta(m*n+m^2)";
-        Result result = new Result(middle ? "W3_insert_middle" : "W3_insert_front",
-                name(linked), n, CHANGE_OPERATIONS, repeat, theory);
+        String theory = "Theta(m*n+m^2)";
+        if (linked) {
+            theory = "Theta(m)";
+            if (middle) {
+                theory = "Theta(m*n)";
+            }
+        }
+        String workload = "W3_insert_front";
+        if (middle) {
+            workload = "W3_insert_middle";
+        }
+        Result result = new Result(workload, name(linked), n,
+                CHANGE_OPERATIONS, repeat, theory);
         result.nanoseconds = elapsed;
         result.addMetrics(list.metrics());
         // Verification is outside timing and after the metric snapshot.
@@ -167,17 +197,29 @@ public class Benchmark {
         require(list.get(index) == inputs.additions[CHANGE_OPERATIONS - 1],
                 "Inserted value is not at the requested position");
         result.checksum = (long) list.get(index) + list.size();
-        sink ^= result.checksum;
+        sink = result.checksum;
         return result;
     }
 
     private static Result remove(boolean linked, Inputs inputs, int repeat, boolean middle) {
         int n = inputs.data.length;
-        int index = middle ? n / 2 : 0; // Fixed from the original n, not the current size.
-        String theory = linked ? (middle ? "Theta(m*n)" : "Theta(m)")
-                : "Theta(m*n) under the batch protocol";
-        Result result = new Result(middle ? "W3_remove_middle" : "W3_remove_front",
-                name(linked), n, CHANGE_OPERATIONS, repeat, theory);
+        int index = 0;
+        if (middle) {
+            index = n / 2;
+        } // Keep this index fixed even when the list size changes.
+        String theory = "Theta(m*n) under the batch protocol";
+        if (linked) {
+            theory = "Theta(m)";
+            if (middle) {
+                theory = "Theta(m*n)";
+            }
+        }
+        String workload = "W3_remove_front";
+        if (middle) {
+            workload = "W3_remove_middle";
+        }
+        Result result = new Result(workload, name(linked), n,
+                CHANGE_OPERATIONS, repeat, theory);
         result.batches = 0;
         int completed = 0;
         while (completed < CHANGE_OPERATIONS) {
@@ -200,7 +242,7 @@ public class Benchmark {
             result.checksum += sum;
             result.batches++;
             completed += count;
-            sink ^= sum;
+            sink = sum;
             require(sum == expected && list.size() == n - count, "Removal batch failed");
         }
         return result;
@@ -220,7 +262,7 @@ public class Benchmark {
         insertion.nanoseconds = elapsed;
         insertion.addMetrics(heap.metrics());
         insertion.checksum = (long) heap.peekMin() + heap.size();
-        sink ^= insertion.checksum;
+        sink = insertion.checksum;
         require(heap.size() == n && heap.isValidHeap(), "Heap insertion validation failed");
 
         heap.metrics().reset();
@@ -241,7 +283,7 @@ public class Benchmark {
             extraction.checksum += extracted[i];
         }
         require(heap.size() == 0 && heap.isValidHeap(), "Heap did not become empty");
-        sink ^= extraction.checksum;
+        sink = extraction.checksum;
         return new Result[] {insertion, extraction};
     }
 
@@ -266,6 +308,8 @@ public class Benchmark {
                 && first.structure.equals(second.structure);
     }
 
+    // Save every run, then find the average of each group of five runs.
+    // try (...) closes the output file automatically, even if writing fails.
     private static void saveResults(List<Result> results) throws IOException {
         Path directory = Paths.get("results", "tables");
         Files.createDirectories(directory);
@@ -300,6 +344,7 @@ public class Benchmark {
                 }
                 require(count == REPETITIONS, "An experiment does not have five repetitions");
                 double average = total / count;
+                // Optional: standard deviation shows how much times vary.
                 double squared = 0;
                 for (Result r : results) {
                     if (sameExperiment(first, r)) {
