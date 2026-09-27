@@ -1,3 +1,0 @@
-# Optional: needed only to regenerate plots and the Word report.
-matplotlib
-python-docx

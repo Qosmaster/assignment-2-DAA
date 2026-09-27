@@ -1,6 +1,16 @@
 # Assignment 2: Java Data Structures
 
-Start with `START_HERE.md`. Use `check.bat` on Windows for a safe test run.
+## Run the project
+
+Install a JDK (tested with Java 21). Open a terminal in this folder.
+
+```text
+javac -d out src/*.java
+java -cp out Tests
+java -cp out Benchmark
+```
+
+On Windows Command Prompt, use `javac -d out src\*.java` for the first line. Tests checks correctness. Benchmark repeats the experiments and replaces `results/tables/raw.csv` and `summary.csv`; keep a copy if you need the original numbers and plots. Java does not require Python or extra libraries.
 
 ## Assignment 2
 
@@ -22,7 +32,7 @@ This project compares a Dynamic Array, a Linked List, and a Min-Heap. The three 
 
 size is the number of stored values. Capacity is the length of the internal array. head is the first list node, and tail is the last. The array and heap start with space for 16 values. Neither one shrinks its array after removals.
 
-IntList is a small interface: a shared list of methods for the two list classes. It lets the same test code work with either class. Metrics stores three counters: accesses, comparisons, and movements. Demo.java shows small examples before the larger tests.
+IntList is a small interface: a shared list of methods for the two list classes. It lets the same test code work with either class. Metrics stores three counters: accesses, comparisons, and movements.
 
 The custom structures do not use ready-made collections as storage. Standard Java collections are used to check answers and to hold benchmark result records. The Java source has no streams, lambdas, recursion, or external libraries.
 
@@ -30,7 +40,7 @@ The custom structures do not use ready-made collections as storage. Standard Jav
 
 The tests check empty structures, one value, many values, duplicates, negative values, boundary positions, invalid indices, and 100,000-element inputs. They also check repeated array growth and list operations after the list becomes empty.
 
-Array results are compared with ArrayList; list results with java.util.LinkedList; heap results with PriorityQueue and a sorted array. Mixed heap tests check the heap rule after every insertion and removal. The latest run passed 188,698 checks. Its output is saved in results/test-results.txt [3].
+Array results are compared with ArrayList; list results with java.util.LinkedList; heap results with PriorityQueue and a sorted array. Mixed heap tests check the heap rule after every insertion and removal. The latest run passed 188,698 checks [3].
 
 get and remove accept indices from 0 to size - 1. Insertion also accepts index size. Invalid indices throw IndexOutOfBoundsException. Reading or removing a minimum from an empty heap throws NoSuchElementException. These errors do not change the stored values.
 
@@ -166,7 +176,7 @@ The code removes as many values as are valid, restores the original structure ou
 | 10,000 | 1 | 5,000 | 1 |
 | 100,000 | 1 | 50,000 | 1 |
 
-A batch includes one prepared structure. All insertions start from a separate original structure. Measurements were made in a shared Linux container with OpenJDK 21, not on the student's computer. Full version and memory details are in results/environment.txt. Times may vary because of Java warm-up, scheduling, and memory use [3].
+A batch includes one prepared structure. All insertions start from a separate original structure. Measurements were made in a shared Linux container with OpenJDK 21, not on the student's computer. Times may vary because of Java warm-up, scheduling, and memory use [3].
 
 ## 5. Results
 
@@ -299,7 +309,7 @@ These graphs show work counts rather than speed. Logarithmic axes keep small and
 
 ![Figure 8. Heap insertion and extraction comparison counts.](results/plots/08_heap_comparisons.png)
 
-Counts are identical across the five runs because the input is fixed. verify_results.py checks averages, repeat counts, search hits, and exact insertion/removal counts. These checks passed for all 56 experiments [3].
+Counts are identical across the five runs because the input is fixed. The saved CSV files contain five runs for each of the 56 experiments [3].
 
 ## 6. Discussion
 
@@ -355,22 +365,11 @@ No structure is best for every job. The Dynamic Array is strong for indexed acce
 
 All required methods and tests are included. The two proofs cover indexed array insertion and list search. The Workload 3 removal rule still needs the instructor's approval. The GitHub repository also needs to be published before submission.
 
-### Appendix: running and submitting
+### Submission
 
-On Windows, run check.bat first. It compiles the source, runs Demo, and runs Tests. It does not replace the saved measurements. A JDK is needed; this project was tested with JDK 21. On macOS/Linux use sh check.sh.
+Run the commands at the top of this README to check the source. The assignment requires a GitHub link, the report, benchmark tables, and plots. It does not ask for screenshots [1]. Add your name and group before submission.
 
-run.bat or sh run.sh starts the full benchmark and replaces the result CSV files. Run it in a copy of the project to keep the supplied results unchanged. To rebuild all graphs and documents after new measurements, use the optional Python scripts:
-
-```
-python -m pip install matplotlib python-docx
-python scripts/verify_results.py
-python scripts/make_plots.py
-python scripts/build_report.py
-```
-
-The brief asks for tables, graphs, an individual report, and a GitHub repository link. It does not separately require screenshots [1]. A screenshot of your own successful test run can be added as extra evidence, but it does not replace the source files or results.
-
-The ZIP includes the existing local development history and the actual simplification changes. These assistant-prepared commits are not past work done by the student. Publish honestly under your authorized account; see docs/PUBLISHING.md. Review the code and fill in the name and group before submission.
+The included `.git` directory holds local development commits prepared with assistant help. A GitHub repository has not been published; upload the project to your own account and describe your contribution accurately.
 
 ### Sources
 
@@ -378,5 +377,5 @@ The ZIP includes the existing local development history and the actual simplific
 
 [2] Bollobás, B., and Simon, I. (1985). Repeated random insertion into a priority queue. Journal of Algorithms 6(4), 466-477. DOI: 10.1016/0196-6774(85)90028-8. Source of the random-order expected heap construction result.
 
-[3] This project: src/*.java, results/tables/raw.csv, summary.csv, test-results.txt, benchmark-log.txt, verification.txt, and environment.txt. Source of the tests, measurements, and checks. Proofs and workload explanations follow the supplied code.
+[3] This project: src/*.java and results/tables/raw.csv and summary.csv. Source of the tests, measurements, and checks. Proofs and workload explanations follow the supplied code.
 

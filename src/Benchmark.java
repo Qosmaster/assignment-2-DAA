@@ -1,10 +1,8 @@
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.management.ManagementFactory;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -362,26 +360,6 @@ public class Benchmark {
         }
     }
 
-    private static void saveEnvironment() throws IOException {
-        Files.createDirectories(Paths.get("results"));
-        try (PrintWriter out = new PrintWriter(Files.newBufferedWriter(Paths.get("results", "environment.txt")))) {
-            out.println("Recorded at: " + Instant.now());
-            out.println("Java version: " + System.getProperty("java.version"));
-            out.println("Java VM: " + System.getProperty("java.vm.name"));
-            out.println("Java vendor: " + System.getProperty("java.vendor"));
-            out.println("OS: " + System.getProperty("os.name") + " " + System.getProperty("os.version"));
-            out.println("Architecture: " + System.getProperty("os.arch"));
-            out.println("Available processors: " + Runtime.getRuntime().availableProcessors());
-            out.println("Maximum JVM memory bytes: " + Runtime.getRuntime().maxMemory());
-            out.println("JVM arguments: " + ManagementFactory.getRuntimeMXBean().getInputArguments());
-            out.println("Seed: " + SEED + "; recorded repetitions: " + REPETITIONS);
-            out.println("Warm-up: two unreported complete rounds at n=1000.");
-            out.println("Measurements include logical counter updates, not data generation or printing.");
-            out.println("Removal batch restorations and result validation are excluded from timing.");
-            out.println("Runtime environment is a shared container, not the student's personal computer.");
-        }
-    }
-
     public static void main(String[] args) throws IOException {
         System.out.println("Warming up the JVM...");
         Inputs warmup = new Inputs(1000);
@@ -397,7 +375,6 @@ public class Benchmark {
             System.out.println("Finished n=" + n + " with five repetitions.");
         }
         saveResults(results);
-        saveEnvironment();
         System.out.println("Saved " + results.size() + " raw rows and 56 summary rows.");
         System.out.println("All workload validation checks passed. Checksum sink: " + sink);
     }
