@@ -16,7 +16,7 @@ On Windows Command Prompt, use `javac -d out src\*.java` for the first line. Tes
 
 Algorithmic Analysis, Correctness and Performance Trade-offs
 
-Student: ____________________    Group: ____________________
+Student: Adiyat Smagul    Group: SE-2522
 
 ## 1. Overview
 
@@ -370,12 +370,3 @@ All required methods and tests are included. The two proofs cover indexed array 
 Run the commands at the top of this README to check the source. The assignment requires a GitHub link, the report, benchmark tables, and plots. It does not ask for screenshots [1]. Add your name and group before submission.
 
 The included `.git` directory holds local development commits prepared with assistant help. A GitHub repository has not been published; upload the project to your own account and describe your contribution accurately.
-
-### Sources
-
-[1] Supplied Assignment 2-1.pdf, Sections 3-14. Source of the requirements.
-
-[2] Bollobás, B., and Simon, I. (1985). Repeated random insertion into a priority queue. Journal of Algorithms 6(4), 466-477. DOI: 10.1016/0196-6774(85)90028-8. Source of the random-order expected heap construction result.
-
-[3] This project: src/*.java and results/tables/raw.csv and summary.csv. Source of the tests, measurements, and checks. Proofs and workload explanations follow the supplied code.
-
